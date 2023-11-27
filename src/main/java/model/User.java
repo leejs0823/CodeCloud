@@ -117,7 +117,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", description='" + description + '\'' +
-                ", password='[PROTECTED]'" + // 비밀번호는 로깅에 나타나지 않도록 보호합니다.
+                ", password='[PROTECTED]'" + // 비밀번호는 로깅에 나타나지 않도록 보호
                 ", groupCount=" + groupCount +
                 ", groups=" + groups +
                 ", isAdmin=" + isAdmin +

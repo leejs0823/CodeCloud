@@ -25,10 +25,7 @@ public class Comment {
         this.content = content;
     }
 
-    // 게터 및 세터 메서드들...
-    // 생략된 게터 및 세터 메서드들은 필드에 따라 생성됩니다.
 
-    // toString 메서드는 객체를 문자열로 표현하여 출력하기 위해 사용됩니다.
     @Override
     public String toString() {
         return "Comment{" +
