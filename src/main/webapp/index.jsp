@@ -7,7 +7,7 @@
     <style>
   
     </style>
-        <link rel="stylesheet" type="text/css" href="./resources/css/common/main_style.css">
+        <link rel="stylesheet" type="text/css" href="./resources/css/main/main.css">
  
 </head>
 <body>
