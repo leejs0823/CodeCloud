@@ -7,17 +7,19 @@ public class Group {
  private String groupName; // 그룹 이름
  private String description; // 그룹 설명
  private String groupImage; // 그룹 이미지의 경로 또는 URL을 가정한 문자열
+ private String groupThumbnail;
 
  // 기본 생성자
  public Group() {
  }
 
  // 매개변수가 있는 생성자
- public Group(Long groupId, String groupName, String description, String groupImage) {
+ public Group(Long groupId, String groupName, String description, String groupImage, String groupThumbnail) {
      this.groupId = groupId;
      this.groupName = groupName;
      this.description = description;
      this.groupImage = groupImage;
+     this.groupThumbnail = groupThumbnail;
  }
 
  // groupId 필드의 getter 메소드
@@ -59,6 +61,16 @@ public class Group {
  public void setGroupImage(String groupImage) {
      this.groupImage = groupImage;
  }
+ 
+ // groupThumbnail 필드의 getter 메소드
+ public String getGroupThumbnail() {
+     return groupThumbnail;
+ }
+
+ // groupThumbnail 필드의 setter 메소드
+ public void setGroupThumbnail(String groupThumbnail) {
+     this.groupThumbnail = groupThumbnail;
+ }
 
  // 객체의 문자열 표현을 반환하는 toString 메소드
  @Override
@@ -68,6 +80,7 @@ public class Group {
              ", groupName='" + groupName + '\'' +
              ", description='" + description + '\'' +
              ", groupImage='" + groupImage + '\'' +
+             ", groupThumbnail='" + groupThumbnail + '\'' +
              '}';
  }
 }
