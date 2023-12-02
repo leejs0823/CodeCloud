@@ -13,9 +13,11 @@
             <p>Address: 서울특별시 중구 동호로 30가</p>
         </div>
         <div class="footer-section social-media">
-            <!-- Social media icons would go here -->
+            <h3>Social Media</h3>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="color:#fff">
             <p>Copyright © Code Cloud</p>
         </div>
     </div>

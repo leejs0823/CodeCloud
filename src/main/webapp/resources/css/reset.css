@@ -21,9 +21,9 @@ time, mark, audio, video {
     border: 0;
     font: inherit;
     vertical-align: baseline;
-    color:#333;
     font-size: 10px;
-    font-family: "Pretendard-medium"
+    font-family: "Pretendard-medium";
+
 }
 @font-face {
     font-family: 'Pretendard-medium';
@@ -91,6 +91,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+
 }
 ol, ul {
     list-style: none;

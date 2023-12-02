@@ -1,11 +1,15 @@
-.container {
+.navbar_container {
     width: 80%;
     margin: auto;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
 }
+
 header {
     padding-top: 10px;
-    min-height: 40px;
 }
 .navbar_logo{
     width: 54px;
@@ -27,9 +31,15 @@ header li {
 }
 header #branding {
     float: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
+
 header #branding h1 {
-    margin: 0;
+    margin-left: 2rem;
+    font-size: 2rem;
+    font-family: "Pretendard-medium";
 }
 header nav {
     float: right;

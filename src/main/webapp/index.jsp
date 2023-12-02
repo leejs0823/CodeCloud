@@ -4,24 +4,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>환영합니다 - 내 블로그</title>
-    <style>
-    </style>
+    <title>CodeCloud</title>
         <link rel="stylesheet" type="text/css" href="./resources/css/reset.css">
         <link rel="stylesheet" type="text/css" href="./resources/css/main/main.css">
         <link rel="stylesheet" type="text/css" href="./resources/css/layout/layout.css">
 </head>
 <body>
-<header>
+    <%--헤더--%>
     <%@ include file="./views/layout/layoutNavbar.jsp" %>
-</header>
-        <div class="container">
-            <h2>환영합니다!</h2>
-            <p>Code Cloud!</p>
-        </div>
-<footer>
+
+    <%--메인--%>
+    <%@ include file="./views/main/main.jsp" %>
+
+    <%--푸터--%>
     <%@ include file="./views/layout/layoutFooter.jsp" %>
-</footer>
-        <script src="./resources/common/main_script.js"></script>
+
+    <%--js--%>
+    <script src="./resources/common/main_script.js"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <header>
-    <div class="container">
+    <div class="navbar_container">
         <div id="branding">
-            <%--image here--%>
             <img class="navbar_logo" src="./resources/images/cc_logo.png" alt="logo">
+            <h1>CodeCloud</h1>
         </div>
         <nav>
             <ul>

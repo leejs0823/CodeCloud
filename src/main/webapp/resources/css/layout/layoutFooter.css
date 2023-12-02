@@ -1,22 +1,22 @@
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-}
-
 .footer-section h3 {
     margin-bottom: 10px;
+    color : white;
+    font-family: Pretendard-Light;
+
 }
 
 .footer-section p, .footer-section a {
     margin-bottom: 5px;
+    color : white;
+    font-family: Pretendard-Light;
 }
 
 .footer-bottom {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    font-family: Pretendard-Light;
+    color:#fff;
+
 }
 
 .social-media {
@@ -29,6 +29,8 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #333;
-    color: white;
+    /*4B4B4F*/
+    background-color: #4B4B4F;
+    font-family: Pretendard-Light;
+
 }
