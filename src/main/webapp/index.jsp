@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <title>환영합니다 - 내 블로그</title>
     <style>
-  
     </style>
         <link rel="stylesheet" type="text/css" href="./resources/css/main/main.css">
- 
+    <link rel="stylesheet" type="text/css" href="./resources/css/reset.css">
 </head>
 <body>
     <header>
