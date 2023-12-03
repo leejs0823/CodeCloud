@@ -189,7 +189,6 @@
 			</div>
 		</div>
 	</main>
-
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
 
