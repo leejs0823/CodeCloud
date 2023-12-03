@@ -7,3 +7,58 @@
     /*임시 높이*/
     height :60rem;
 }
+#banner > img{
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+#banner > .link{
+	position: absolute;
+	transform:translate(-50%, -50%);
+	width: 100%;
+	font-size: 2rem;
+	font-family:Pretendard-ExtraBold;
+	position:relative;
+	left:20%;
+	top:70%;
+
+}
+main{
+	background-color: white;
+	width: 80%;
+}
+main > #bar{
+	width: 100%;
+	display: flex;
+	height:90px;
+	padding:0px 20px;
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+}
+main > #sortbar{
+	display: flex;
+	width:300px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+}
+main > #searchbar{
+	width: 150px;
+	height: 40px;
+}
+
+#sortbar ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+#sortbar li {
+    display: inline;
+
+    font-size: 2rem;
+}
+#sortbar a:hover {
+    font-weight: bold;
+}
