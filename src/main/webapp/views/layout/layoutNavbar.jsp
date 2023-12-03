@@ -2,7 +2,7 @@
 <header>
     <div class="navbar_container">
         <div id="branding">
-            <img class="navbar_logo" src="./resources/images/cc_logo.png" alt="logo">
+            <img class="navbar_logo" src="../../resources/images/cc_logo.png" alt="logo">
             <h1>CodeCloud</h1>
         </div>
         <nav>

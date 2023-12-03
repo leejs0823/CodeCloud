@@ -1,64 +1,119 @@
 @charset "UTF-8";
-.container {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    overflow: hidden;
-    /*임시 높이*/
-    height :60rem;
+#banner{
+	width: 100%;
 }
 #banner > img{
 	object-fit: cover;
 	width: 100%;
 	height: auto;
 }
-#banner > .link{
-	position: absolute;
-	transform:translate(-50%, -50%);
-	width: 100%;
-	font-size: 2rem;
-	font-family:Pretendard-ExtraBold;
-	position:relative;
-	left:20%;
-	top:70%;
-
-}
 main{
-	background-color: white;
-	width: 80%;
+	margin: 0 10%;
+	flex-direction: column;
+	align-items: center;
 }
 main > #bar{
 	width: 100%;
 	display: flex;
-	height:90px;
-	padding:0px 20px;
+	height:80px;
 	justify-content: space-between;
 	align-items: center;
-	flex-shrink: 0;
 }
-main > #sortbar{
+main #selectbar{
 	display: flex;
-	width:300px;
-	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	flex-shrink: 0;
 }
-main > #searchbar{
-	width: 150px;
+main #searchbar{
 	height: 40px;
+	display: flex;
+	align-items: center;
 }
 
-#sortbar ul {
+main #selectbar ul {
     padding: 0;
     list-style: none;
     text-align: center;
 }
-#sortbar li {
+main #selectbar li {
     display: inline;
-
-    font-size: 2rem;
+    margin: 0 20px;
 }
-#sortbar a:hover {
+main #selectbar .current{
+	text-decoration: underline;
+	font-weight: bold;
+}
+main #selectbar a{
+	font-size: 18px;
+}
+main #selectbar a:hover {
     font-weight: bold;
+}
+main #sort{
+	padding-left: 20px;
+	display: flex;
+	align-items: center;
+	height: 30px;
+}
+main #sort p{
+	font-size: 16px;
+}
+main #content .frame{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+main #content .frame .post{
+	margin: 15px;
+	display: flex;
+	width: 390px;
+	height: 390px;
+	flex-direction: column;
+	border-radius: 40px;
+	border: 1px solid #D9D9D9;
+	background: white;
+	box-shadow: 1px 1px 10px 0px #D9D9D9;
+}
+main #content .frame .post .thumbnail{
+	background-color: rgb(174, 213, 221);
+	width: 100%;
+	height: 60%;
+	border-radius: 40px 40px 0px 0px;
+}
+
+main #content .frame .post .post_title{
+	font-size: 18px;
+	font-weight: bold;
+	padding:20px;
+
+}
+main #content .frame .post .detail{
+	font-size: 16px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.writer_and_like{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+}
+.writer_and_like p{
+	font-size: 15px;
+	margin-right: 8px;
+}
+.writer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0px 10px;
+}
+.like{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0px 10px;
+}
+.like img{
+	width: 20px;
+	height: 20px;
 }
