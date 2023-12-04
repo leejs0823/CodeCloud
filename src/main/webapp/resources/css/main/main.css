@@ -38,13 +38,15 @@ main #selectbar li {
     display: inline;
     margin: 0 2rem;
 }
-main #selectbar #current{
+main #selectbar li a{
+	font-size: 1.8rem;
+}
+
+main #selectbar #selected{
 	text-decoration: underline;
 	font-weight: bold;
 }
-main #selectbar a{
-	font-size: 1.8rem;
-}
+
 main #selectbar a:hover {
     font-weight: bold;
 }
@@ -62,6 +64,11 @@ main #content .frame{
 	justify-content: space-between;
 	align-items: center;
 }
+main #content .group_frame{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 main #content .frame .post{
 	margin: 1.5rem;
 	display: flex;
@@ -73,17 +80,39 @@ main #content .frame .post{
 	background: white;
 	box-shadow: 1px 1px 10px 0px #D9D9D9;
 }
+main #content .group_frame .group{
+	padding: 1.5rem;
+	display: flex;
+	width: 25rem;
+	height: 30rem;
+	flex-direction: column;
+	align-items: center;
+}
 main #content .frame .post .thumbnail{
 	background-color: rgb(174, 213, 221);
 	width: 100%;
 	height: 60%;
 	border-radius: 40px 40px 0px 0px;
 }
-
+main #content .group_frame .group .profile{
+	object-fit: cover;
+	background-color: rgb(174, 213, 221);
+	width: 20rem;
+	height: 20rem;
+	border-radius: 100%;
+	border: 1px solid #D9D9D9;
+}
 main #content .frame .post .post_title{
 	font-size: 1.8rem;
 	font-weight: bold;
 	padding: 2rem;
+
+}
+main #content .group_frame .group .group_name{
+	font-size: 1.8rem;
+	font-weight: bold;
+	align-items: center;
+	padding-top: 1.5rem;
 
 }
 main #content .frame .post .detail{
@@ -91,15 +120,31 @@ main #content .frame .post .detail{
 	padding-left: 2rem;
 	padding-right: 2rem;
 }
+main #content .group_frame .group .introduction{
+	font-size: 1.6rem;
+	align-items: center;
+	padding-top: 1.5rem;
+}
 .writer_and_like{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 2rem;
 }
+main #content .group_frame .group .total_member{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 1.5rem;
+}
 .writer_and_like p{
 	font-size: 1.5rem;
 	margin-right: 0.8rem;
+}
+.total_member p{
+	font-size: 1.5rem;
+	margin: 0 0.8rem;
+	align-items: center;
 }
 .writer{
 	display: flex;
