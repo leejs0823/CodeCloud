@@ -1,1 +1,39 @@
-@charset "EUC-KR";
+@charset "UTF-8";
+.groupresult-container {
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    text-align: center;
+    display: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    /*임시 높이*/
+    height :60rem;
+}
+
+.groupresult-header {
+	padding: 6.25rem;
+	flex-direction: column;
+}
+
+.groupresult-body {
+}
+
+.groupresult-footer {
+	padding: 5rem;
+}
+
+.groupresult-container h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.groupresult-container h3 {
+    font-size: 1.85rem;
+    font-weight: 700;
+}
+
+.groupresult-container p {
+	font-size: 1.25rem;
+	font-weight: 700;
+}
