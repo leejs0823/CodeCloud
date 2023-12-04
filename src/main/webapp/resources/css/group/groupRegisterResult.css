@@ -12,23 +12,28 @@
 }
 
 .groupresult-header {
-	margin: 100px;
+	padding: 6.25rem;
+	flex-direction: column;
 }
 
 .groupresult-body {
 }
 
 .groupresult-footer {
-	margin: 8px 500px;
+	padding: 5rem;
 }
 
 .groupresult-container h1 {
-	font-size:large;
-	font-weight: bold;
-	font-family: Pretendard-bold;
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.groupresult-container h3 {
+    font-size: 1.85rem;
+    font-weight: 700;
 }
 
 .groupresult-container p {
-	font-size: small;
-	font-family: Pretendard-medium;
+	font-size: 1.25rem;
+	font-weight: 700;
 }
