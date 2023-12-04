@@ -15,7 +15,7 @@ main{
 main > #bar{
 	width: 100%;
 	display: flex;
-	height:80px;
+	height:8rem;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -24,7 +24,7 @@ main #selectbar{
 	align-items: center;
 }
 main #searchbar{
-	height: 40px;
+	height: 4rem;
 	display: flex;
 	align-items: center;
 }
@@ -36,26 +36,26 @@ main #selectbar ul {
 }
 main #selectbar li {
     display: inline;
-    margin: 0 20px;
+    margin: 0 2rem;
 }
-main #selectbar .current{
+main #selectbar #current{
 	text-decoration: underline;
 	font-weight: bold;
 }
 main #selectbar a{
-	font-size: 18px;
+	font-size: 1.8rem;
 }
 main #selectbar a:hover {
     font-weight: bold;
 }
 main #sort{
-	padding-left: 20px;
+	padding-left: 2rem;
 	display: flex;
 	align-items: center;
-	height: 30px;
+	height: 3rem;
 }
 main #sort p{
-	font-size: 16px;
+	font-size: 1.6rem;
 }
 main #content .frame{
 	display: flex;
@@ -63,10 +63,10 @@ main #content .frame{
 	align-items: center;
 }
 main #content .frame .post{
-	margin: 15px;
+	margin: 1.5rem;
 	display: flex;
-	width: 390px;
-	height: 390px;
+	width: 39rem;
+	height: 39rem;
 	flex-direction: column;
 	border-radius: 40px;
 	border: 1px solid #D9D9D9;
@@ -81,39 +81,39 @@ main #content .frame .post .thumbnail{
 }
 
 main #content .frame .post .post_title{
-	font-size: 18px;
+	font-size: 1.8rem;
 	font-weight: bold;
-	padding: 20px;
+	padding: 2rem;
 
 }
 main #content .frame .post .detail{
-	font-size: 16px;
-	padding-left: 20px;
-	padding-right: 20px;
+	font-size: 1.6rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
 .writer_and_like{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 20px;
+	padding: 2rem;
 }
 .writer_and_like p{
-	font-size: 15px;
-	margin-right: 8px;
+	font-size: 1.5rem;
+	margin-right: 0.8rem;
 }
 .writer{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 0px 10px;
+	margin: 0px 1rem;
 }
 .like{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 0px 10px;
+	margin: 0px 1rem;
 }
 .like img{
-	width: 20px;
-	height: 20px;
+	width: 2rem;
+	height: 2rem;
 }
