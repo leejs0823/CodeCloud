@@ -1,13 +1,22 @@
-function loadContent(elementId, jspFile){
-	let contentDiv = document.getElementById("content");
-	contentDiv.innerHTML = '<%@ include file = "' + jspFile + '" %>';
-	document.getElementById("selected").removeAttribute("id");
-	document.getElementById(elementId).setAttribute("id", "selected");
-}
-function loadPost(){
-	loadContent("post_filter", "./mainPost.jsp");
+function loadPage(pageName) {
+	let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {
+         	document.getElementById("content").innerHTML = this.responseText;
+    	}
+    };
+    xhttp.open("GET", pageName, true);
+    xhttp.send();
 }
 
-function loadGroup(){
-	loadContent("group_filter", "./mainGroup.jsp");
+function select(selected) {
+
+     if(selected=="group_category"){
+		 document.querySelector("#group_category").classList.add("selected");
+		 document.querySelector("#post_category").classList.remove("selected");
+	 }
+	 else if(selected=="post_category"){
+		 document.querySelector("#group_category").classList.remove("selected");
+		 document.querySelector("#post_category").classList.add("selected");
+	 }
 }
