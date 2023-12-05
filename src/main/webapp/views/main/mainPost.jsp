@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-			<div class="frame">
-				<div class="post">
+<div id = "post_content">
+	<div class="frame">
+		<div class="post" >
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -17,7 +18,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="post">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -33,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="post">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -49,9 +50,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="frame">
-				<div class="post">
+	</div>
+	<div class="frame">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -67,7 +68,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="post">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -83,7 +84,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="post">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -99,9 +100,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="frame">
-				<div class="post">
+	</div>
+	<div class="frame">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -117,7 +118,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="post">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -133,7 +134,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="post">
+		<div class="post">
 					<div class="thumbnail"></div>
 					<p class="post_title">제목을 입력하세요</p>
 					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
@@ -149,4 +150,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
+	</div>
+</div>
+			

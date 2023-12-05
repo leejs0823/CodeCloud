@@ -42,13 +42,13 @@ main #selectbar li a{
 	font-size: 1.8rem;
 }
 
-main #selectbar #selected{
+main #selectbar .selected{
 	text-decoration: underline;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 main #selectbar a:hover {
-    font-weight: bold;
+    font-weight: 700;
 }
 main #sort{
 	padding-left: 2rem;
@@ -77,7 +77,6 @@ main #content .frame .post{
 	flex-direction: column;
 	border-radius: 40px;
 	border: 1px solid #D9D9D9;
-	background: white;
 	box-shadow: 1px 1px 10px 0px #D9D9D9;
 }
 main #content .group_frame .group{
@@ -89,28 +88,28 @@ main #content .group_frame .group{
 	align-items: center;
 }
 main #content .frame .post .thumbnail{
-	background-color: rgb(174, 213, 221);
+	background-color: #DEEBF8;
 	width: 100%;
 	height: 60%;
 	border-radius: 40px 40px 0px 0px;
 }
 main #content .group_frame .group .profile{
 	object-fit: cover;
-	background-color: rgb(174, 213, 221);
-	width: 20rem;
-	height: 20rem;
+	background-color: #DEEBF8;
+	width: 18rem;
+	height: 18rem;
 	border-radius: 100%;
 	border: 1px solid #D9D9D9;
 }
 main #content .frame .post .post_title{
 	font-size: 1.8rem;
-	font-weight: bold;
+	font-weight: 700;
 	padding: 2rem;
 
 }
 main #content .group_frame .group .group_name{
 	font-size: 1.8rem;
-	font-weight: bold;
+	font-weight: 700;
 	align-items: center;
 	padding-top: 1.5rem;
 

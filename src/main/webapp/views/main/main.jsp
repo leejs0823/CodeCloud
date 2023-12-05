@@ -19,8 +19,8 @@
 		<div id="bar">
 			<div id="selectbar">
 				<ul>
-               	 	<li id="selected" id="post_filter" onclick="loadPost()"><a>게시물</a></li>
-               	 	<li id="group_filter" onclick="loadGroup()"><a>단체</a></li>
+               	 	<li ><a id ="post_category" class="selected" onclick="loadPage('mainPost.jsp'); select('post_category')">게시물</a></li>
+               	 	<li><a id="group_category" onclick="loadPage('mainGroup.jsp'); select('group_category')">단체</a></li>
            		</ul>
 			</div>
 			<div id="searchbar">
@@ -36,10 +36,14 @@
 			<p>최신순</p>
 			<a><img src="../../resources/images/icons/down_icon.png"></a>
 		</div>
-		<div id="content">
-			<%@ include file = "./mainPost.jsp" %>
+		<div id = "content">
+		<jsp:include page = "./mainPost.jsp"></jsp:include>
 		</div>
+		
+			
+		
 	</main>
+	
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
 
