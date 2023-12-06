@@ -4,8 +4,8 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    display: relative;
-    width: 80%;
+    display: flex;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -15,39 +15,37 @@
 }
 
 .groupregister-body {
-	padding: 3.125rem;
+	padding: 0 3.125rem;
+}
+    
+.groupregister-image img {
+	max-width: 60%;
+	height: auto;
+}
+    
+.groupregister-info {
+	padding: 3.125rem 10.125rem;
+	flex-direction: column;
+	display: flex;
 }
 
-    .groupregister-image {
-        text-align: center;
-        margin-top: 20px;
-    }
-    
-    .groupregister-image img {
-    width: 1274px;
-    height: 591px;
-	}
-
-    .groupregister-image input[type="file"] {
-        display: none;
-    }
-
-    .groupregister-image label {
-        border: 2px solid #ccc;
-        display: inline-block;
-        padding: 10px 15px;
-        cursor: pointer;
-    }
-
-    .groupregister-image label:hover {
-        background-color: #f0f0f0;
-    }
-    
-    .groupregister-info {
-		padding: 3.125rem;
-	}
-
-.groupregister-footer {
+.groupregister-text{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.groupregisterButton{
+    padding: 1rem;
+    text-align: center;
+    background: #4285F4;
+    width: 8.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: white;
+    box-shadow: 0rem 0.1rem 1rem #4285F4;
+    border-radius: 2rem;
+    border: none;
+    margin: 5rem 0 4rem;
 }
 
 .groupregister-container h1 {
@@ -57,8 +55,14 @@
 }
 
 .groupregister-container h3 {
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	width: 43.25rem;
     font-size: 1.85rem;
     font-weight: 700;
+    padding: 1rem;
+    text-align: left;
 }
 
 .groupregister-container p {
@@ -71,7 +75,13 @@
     color: #4285F4;
 }
 
+#description {
+	padding-top: 3.125rem;
+}
+
 #nameinput {
+	flex-direction: column;
+	display: flex;
 	width: 43.25rem;
 	border-radius: 15px;
 	border: 1px solid #9D9D9D;
@@ -79,6 +89,8 @@
 }
 
 #descriptioninput {
+	flex-direction: column;
+	display: flex;
 	width: 43.25rem;
 	border-radius: 15px;	
 	border: 1px solid #9D9D9D;

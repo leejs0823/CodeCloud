@@ -35,7 +35,7 @@
 
 	    <div class="groupresult-footer">
 	    		<!-- 메인 페이지로 이동하는 링크 -->
-		        <a href="../main/main.jsp">메인으로</a>
+		        <a href="../main/main.jsp" class="main-link">메인으로</a>
 	    </div>
     </div>
     

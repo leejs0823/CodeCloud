@@ -4,8 +4,8 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    display: relative;
-    width: 80%;
+    display: flex;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -20,6 +20,20 @@
 
 .groupresult-footer {
 	padding: 5rem;
+}
+
+.main-link{
+    padding: 1rem;
+    text-align: center;
+    background: #4285F4;
+    width: 8.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: white;
+    box-shadow: 0rem 0.1rem 1rem #4285F4;
+    border-radius: 2rem;
+    border: none;
+    margin: 5rem 0 4rem;
 }
 
 .groupresult-container h1 {
