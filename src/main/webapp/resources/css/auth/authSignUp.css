@@ -1,0 +1,105 @@
+.signUpInputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    width: 60%;
+}
+
+.signUpInputTitleText {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.signUpInput {
+    border: none;
+    border-bottom: 2px solid #aeafb9;
+    outline: none;
+    padding: 5px;
+}
+
+.signUpInput::placeholder {
+    color: #aeafb9;
+}
+
+/* isValid가 true일 때와 false일 때의 스타일은 클래스를 통해 구현 */
+.signUpInput-valid {
+    border-bottom: 1px solid #000000;
+}
+
+.signUpInput-invalid {
+    border-bottom: 1px solid red;
+}
+
+.messageText {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.authSignUpText{
+	text-align: center;
+    font-size: 3.6rem;
+    font-weight: 600;
+    margin: 6rem 0rem;
+}
+.messageText-valid {
+    color: #00C24E;
+}
+
+.messageText-invalid {
+    color: #FF5D47;
+}
+
+.select {
+    background-color: #f8f8fa;
+    border: none;
+    padding: 1rem;
+}
+
+.option {
+    background-color: white;
+    color: #333333;
+}
+
+.signUpInputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    width: 50%;
+    margin:0 auto;
+    align-items: center;
+    justify-content: center;
+ 	align-self : center;
+}
+
+.authSignUpButton {
+    display: flex;
+    padding: 2.6rem;
+    justify-content: center;
+    align-items: center;
+    background: #4285F4;
+    width: 25rem;
+    height: 2rem;
+    font-weight: 600;
+    font-size: 2rem;
+    color:  white;
+    box-shadow: 0rem 0.1rem 1rem #4285F4;
+    border-radius: 4.4rem;
+    margin-bottom: 4.1rem;
+    border : none;
+}
+
+.validationMessage {
+    color: #FF5D47;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.validationMessage.valid {
+    color: #00C24E;
+}
+
+
+
+
+
