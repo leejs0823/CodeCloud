@@ -87,6 +87,7 @@
     border-radius: 4.4rem;
     margin-bottom: 4.1rem;
     border : none;
+    cursor: pointer;
 }
 
 .validationMessage {

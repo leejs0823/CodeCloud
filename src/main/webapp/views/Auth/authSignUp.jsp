@@ -52,8 +52,8 @@
 	        </div>
 	
 	        <!-- 가입하기 버튼 -->
-	        <button class="authSignUpButton" type="submit">가입하기</button>
-	    </form>
+		<button class="authSignUpButton" type="submit">가입하기</button>
+	</form>
 	
 	    <%--푸터--%>
 	    <%@ include file="../../views/layout/layoutFooter.jsp" %>

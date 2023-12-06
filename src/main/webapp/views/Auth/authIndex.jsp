@@ -16,7 +16,7 @@
 
 <%--    처음에는 로그인 페이지--%>
     <%@ include file="./authLogin.jsp" %>
-<%--    회원가입 누를시 회원가입 페이지--%>
+
     <%--푸터--%>
     <%@ include file="../../views/layout/layoutFooter.jsp" %>
 
