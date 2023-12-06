@@ -20,22 +20,20 @@
 	        <p>단체가 등록되었습니다.</p>
 	        <p>CodeCloud를 통해 다양한 추억 쌓아가세요 !</p>    
 		</div>
-		<div class="groupresult-body">
-		        <!-- 등록된 단체 정보 출력 -->
-		        <h3>등록된 단체 정보</h3>
-		        <img class="group-image" src="../../resources/images/cc_logo.png" alt="logo">
-		        <p>단체명</p>
-		        <p>단체 소개글</p>
-		        <%--
-		        <!-- registeredGroup 속성을 받아와서 출력 -->
-		        <% Group registeredGroup = (Group) request.getAttribute("registeredGroup"); %>
-		        <p>
-		            단체명: <%= registeredGroup.getGroupName() %><br>
-		            단체 소개: <%= registeredGroup.getDescription() %><br>
-		            <!-- 나머지 이미지 정보는 여기에 추가 -->
-		        </p>
-		        --%>
+		
+	<%-- 
+	    등록된 단체 정보 출력
+	    <div class="groupresult-body">
+	        <h3>등록된 단체 정보</h3>
+	        registeredGroup 속성을 받아와서 출력
+	        <% Group registeredGroup = (Group) request.getAttribute("registeredGroup"); %>
+	        <p>단체명: <%= registeredGroup.getGroupName() %></p>
+	        <p>단체 소개: <%= registeredGroup.getDescription() %></p>
+	        기타 이미지 정보 등을 추가할 수 있습니다
+	        <img class="group-thumbnail" src="<%= registeredGroup.getGroupThumbnail() %>" alt="단체 썸네일">
 	    </div>
+	--%>
+
 	    <div class="groupresult-footer">
 	    		<!-- 메인 페이지로 이동하는 링크 -->
 		        <a href="../main/main.jsp">메인으로</a>

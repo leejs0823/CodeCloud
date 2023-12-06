@@ -1,14 +1,13 @@
 @charset "UTF-8";
 .groupregister-container {
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    flex-direction: column;
     display: relative;
     width: 80%;
     margin: 0 auto;
     overflow: hidden;
-    /*임시 높이*/
-    height :60rem;
 }
 
 .groupregister-header {
@@ -16,14 +15,45 @@
 }
 
 .groupregister-body {
+	padding: 3.125rem;
 }
+
+    .groupregister-image {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .groupregister-image img {
+    width: 1274px;
+    height: 591px;
+	}
+
+    .groupregister-image input[type="file"] {
+        display: none;
+    }
+
+    .groupregister-image label {
+        border: 2px solid #ccc;
+        display: inline-block;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+
+    .groupregister-image label:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .groupregister-info {
+		padding: 3.125rem;
+	}
 
 .groupregister-footer {
 }
 
 .groupregister-container h1 {
-    font-size: 2.25rem;
+    font-size: 3rem;
     font-weight: 700;
+    padding: 1rem;
 }
 
 .groupregister-container h3 {
@@ -32,6 +62,25 @@
 }
 
 .groupregister-container p {
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	font-weight: 700;
+	padding: 1rem;
+}
+
+.blue-text {
+    color: #4285F4;
+}
+
+#nameinput {
+	width: 43.25rem;
+	border-radius: 15px;
+	border: 1px solid #9D9D9D;
+	background: #FFF;
+}
+
+#descriptioninput {
+	width: 43.25rem;
+	border-radius: 15px;	
+	border: 1px solid #9D9D9D;
+	background: #FFF;
 }
