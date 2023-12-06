@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.notfound_logo{
+	width: 16rem;
+
+}
+
+.notFoundWrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	margin-top: 18rem;
+	
+}
+
+.notfound_content{
+	color:  #333;
+	font-size: 3rem;
+	font-weight: 500;
+	margin-bottom: 30rem;
+}
