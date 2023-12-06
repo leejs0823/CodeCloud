@@ -16,8 +16,8 @@
                 <button class="authButton" type="submit">Code Cloud에 로그인</button>
 
                 <div class="underButtonTextWrapper">
-                    <span class="underButtonText" onclick="location.href='/auth/create'">회원 가입</span> | 
-                    <span class="underButtonText" onclick="location.href='/auth/reset'"> 비밀번호 초기화</span>
+                    <span class="underButtonText" onclick="location.href='/CodeCloud/views/Auth/authSignUp.jsp'">회원 가입&nbsp;</span>|
+                    <span class="underButtonText" onclick="location.href='#'">&nbsp;비밀번호 초기화</span>
                 </div>
             </div>
         </form>
