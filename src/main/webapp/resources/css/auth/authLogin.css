@@ -1,0 +1,136 @@
+.fadeInAnimation {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.authWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding-top: 10rem;
+    margin-bottom: 10rem;
+    color: #333;
+}
+.login_logo{
+	display: flex;
+	width: 9.8rem;
+	height: 8.1rem;
+	justify-content: center;
+	align-self: center;
+	margin-bottom: 2.6rem;
+	
+}
+.authText {
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 400;
+    margin-bottom: 6rem;
+    
+}
+.authHilightText{
+	color: #4285F4;
+	font-family: "Pretendard-bold";
+	font-size: 4rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 130%;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.authInputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    
+}
+
+.authInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.5rem;
+    height: 8rem;
+    font-weight: 700;
+    padding-left: 3.1rem;
+    font-size: 1.8rem;
+    color: #4285F4;
+    border-radius: 2.4rem;
+    background: #f8f8fa;
+    border-radius: 2.4rem;
+    border: none;
+}
+
+.authInput:focus {
+    border: 0.2rem solid #4285F4;
+}
+
+.authButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.authButton {
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+    background: #4285F4;
+    width: 40rem;
+    height: 6rem;
+    font-weight: 600;
+    font-size: 2.4rem;
+    color:  white;
+    box-shadow: 0rem 0.1rem 1rem  #4285F4;
+    border-radius: 4.4rem;
+    border: none;
+    margin-bottom: 4.1rem;
+}
+
+.authSignUpButton, .authSignUpButtonDiv {
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+    width: 56rem;
+    height: 7.5rem;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #606067;
+    border: none;
+}
+
+.underButtonTextWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #606067;
+    font-size: 1.8rem;
+}
+
+.underButtonText {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #606067;
+    margin-right: 1rem;
+    cursor: pointer;
+}

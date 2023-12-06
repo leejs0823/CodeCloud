@@ -20,7 +20,6 @@
 	        <p>단체가 등록되었습니다.</p>
 	        <p>CodeCloud를 통해 다양한 추억 쌓아가세요 !</p>    
 		</div>
-		
 	<%-- 
 	    등록된 단체 정보 출력
 	    <div class="groupresult-body">
