@@ -15,7 +15,7 @@
 	    <%@ include file="../../views/layout/layoutNavbar.jsp" %>
 	    
 	    <!-- 회원가입 폼 -->
-	    <form class="signUpInputContainer" action="path/to/your/submitHandler" method="POST">
+	    <form class="signUpInputContainer" action="/auth/signup" method="POST">
 	    <div class="authSignUpText">회원 가입</div>
 	        <!-- 이메일 입력 -->
 	        <div class="signUpInputWrapper">
