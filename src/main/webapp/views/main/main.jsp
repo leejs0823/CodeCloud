@@ -10,10 +10,8 @@
         <link rel="stylesheet" type="text/css" href="../../resources/css/layout/layout.css">
 </head>
 <body>
-    <%--헤더--%>
-    <%@ include file="../layout/layoutNavbar.jsp" %>
 	<div id="banner">
-		<img src="../../resources/images/main_banner.png">
+		<img src="../webapp/resources/images/main_banner.png">
 	</div>
 	<main>
 		<div id="bar">
@@ -34,10 +32,11 @@
 		</div>
 		<div id="sort">
 			<p>최신순</p>
-			<a><img src="../../resources/images/icons/down_icon.png"></a>
+			<a><img src="../webapp/resources/images/icons/down_icon.png"></a>
 		</div>
 		<div id = "content">
-		<jsp:include page = "./mainPost.jsp"></jsp:include>
+			<%@ include file="./mainPost.jsp" %>
+
 		</div>
 		
 			
