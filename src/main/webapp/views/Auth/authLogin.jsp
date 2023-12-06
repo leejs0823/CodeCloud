@@ -2,22 +2,23 @@
 <body>
 
     <div class="authWrapper">
-        <form class="authForm" action="path/to/your/loginServlet" method="POST">
+<!--     login servelet으로 전송  -->
+        <form class="authForm" action="/" method="POST">
         <img class="login_logo" src="../../resources/images/cc_login_logo.png" alt="logo">
             <div class="authText">단체만의 맞춤형 기술블로그,<br/>
 <span class="authHilightText">CODE CLOUD</span>가 만들어드립니다!</div> <!-- AuthLoginTitle에 해당하는 부분 -->
 
             <div class="authInputWrapper">
-                <input type="text" class="authInput" name="email" placeholder="이메일" onchange="handleInputChange(this)">
-                <input type="password" class="authInput" name="pwd" placeholder="비밀번호" onchange="handleInputChange(this)">
+                <input type="text" class="authInput" name="email" placeholder="이메일" onchange="handleInputChange(this)" required>
+                <input type="password" class="authInput" name="pwd" placeholder="비밀번호" onchange="handleInputChange(this)" required>
             </div>
 
             <div class="authButtonWrapper">
                 <button class="authButton" type="submit">Code Cloud에 로그인</button>
 
                 <div class="underButtonTextWrapper">
-                    <span class="underButtonText" onclick="location.href='/CodeCloud/views/Auth/authSignUp.jsp'">회원 가입&nbsp;</span>|
-                    <span class="underButtonText" onclick="location.href='#'">&nbsp;비밀번호 초기화</span>
+                    <span class="underButtonText" onclick="location.href='/CodeCloud/views/Auth/authSignUp.jsp'">회원 가입</span>|
+                    <span class="underButtonText" onclick="location.href='#'">&nbsp;&nbsp;비밀번호 초기화</span>
                 </div>
             </div>
         </form>
