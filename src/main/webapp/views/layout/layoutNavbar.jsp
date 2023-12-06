@@ -1,16 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="model.User" %>
+
 <header>
     <div class="navbar_container">
         <div id="branding">
+            <a href="index.jsp" class="branding_a">
             <img class="navbar_logo" src="../../resources/images/cc_logo.png" alt="logo">
-            <h1>CodeCloud</h1>
+            <h1 class="branding_h1">CodeCloud</h1>
+            </a>
         </div>
         <nav>
             <ul>
-                <li class="current"><a href="index.jsp">홈</a></li>
-                <li><a href="about.jsp">소개</a></li>
-                <li><a href="posts.jsp">게시글</a></li>
-                <li><a href="contact.jsp">연락처</a></li>
+                <%
+                    // 사용자 로그인 상태를 체크하기 위해 세션에서 사용자 정보 가져오기
+                    User user;
+                    user = (User) session.getAttribute("user");
+
+                    // 사용자가 로그인한 경우
+                    if(user != null) {
+                %>
+                <li><a href="./views/user/userMypage.jsp">마이페이지</a></li>
+                <%
+                } else { // 사용자가 로그인하지 않은 경우
+                %>
+                <li><a href="./views/Auth/authIndex.jsp">로그인</a></li>
+                <%
+                    }
+                %>
             </ul>
         </nav>
     </div>

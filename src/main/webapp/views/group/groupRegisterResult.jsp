@@ -23,7 +23,7 @@
 		<div class="groupresult-body">
 		        <!-- 등록된 단체 정보 출력 -->
 		        <h3>등록된 단체 정보</h3>
-		        <img class="group-image" src="../../resources/images/cc_logo.png" alt="logo">
+		        <img class="group-image" src="../webapp/resources/images/cc_logo.png" alt="logo">
 		        <p>단체명</p>
 		        <p>단체 소개글</p>
 		        <%--
