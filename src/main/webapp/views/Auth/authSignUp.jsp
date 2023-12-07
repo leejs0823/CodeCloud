@@ -15,7 +15,7 @@
 	    <%@ include file="../../views/layout/layoutNavbar.jsp" %>
 	    
 	    <!-- 회원가입 폼 -->
-	    <form class="signUpInputContainer" action="path/to/your/submitHandler" method="POST">
+	    <form class="signUpInputContainer" action="/auth/signup" method="POST">
 	    <div class="authSignUpText">회원 가입</div>
 	        <!-- 이메일 입력 -->
 	        <div class="signUpInputWrapper">
@@ -52,8 +52,8 @@
 	        </div>
 	
 	        <!-- 가입하기 버튼 -->
-	        <button class="authSignUpButton" type="submit">가입하기</button>
-	    </form>
+		<button class="authSignUpButton" type="submit">가입하기</button>
+	</form>
 	
 	    <%--푸터--%>
 	    <%@ include file="../../views/layout/layoutFooter.jsp" %>
