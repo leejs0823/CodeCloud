@@ -20,6 +20,16 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/user/*</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>AuthSignUpServlet</servlet-name>
+    <servlet-class>controller.UserSignUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthSignUpServlet</servlet-name>
+    <url-pattern>/auth/*</url-pattern>
+  </servlet-mapping>
+  
 
   <!-- GroupServlet 매핑 -->
   <servlet>

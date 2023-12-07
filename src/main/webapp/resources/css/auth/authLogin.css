@@ -103,6 +103,7 @@
     border-radius: 4.4rem;
     border: none;
     margin-bottom: 4.1rem;
+    cursor: pointer;
 }
 
 .authSignUpButton, .authSignUpButtonDiv {
@@ -125,6 +126,7 @@
     align-items: center;
     color: #606067;
     font-size: 1.8rem;
+    cursor: pointer;
 }
 
 .underButtonText {
