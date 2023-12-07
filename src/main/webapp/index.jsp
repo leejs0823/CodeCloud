@@ -20,6 +20,6 @@
     <%@ include file="./views/layout/layoutFooter.jsp" %>
 
     <%--js--%>
-    <script src="../../resources/js/main/mainDetail.js"></script>
+    <script src="/CodeCloud/resources/js/main/mainDetail.js"></script>
 </body>
 </html>

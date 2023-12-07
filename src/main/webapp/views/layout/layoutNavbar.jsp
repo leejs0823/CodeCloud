@@ -4,7 +4,7 @@
 <header>
     <div class="navbar_container">
         <div id="branding">
-            <a href="index.jsp" class="branding_a">
+            <a href="/CodeCloud/index.jsp" class="branding_a">
             <img class="navbar_logo" src="/CodeCloud/resources/images/cc_logo.png" alt="logo">
             <h1 class="branding_h1">CodeCloud</h1>
             </a>
@@ -19,11 +19,11 @@
                     // 사용자가 로그인한 경우
                     if(user != null) {
                 %>
-                <li><a href="./views/user/userMypage.jsp">마이페이지</a></li>
+                <li><a href=/CodeCloud//views/user/userMypage.jsp">마이페이지</a></li>
                 <%
                 } else { // 사용자가 로그인하지 않은 경우
                 %>
-                <li><a href="./views/Auth/authIndex.jsp">로그인</a></li>
+                <li><a href="/CodeCloud/views/Auth/authIndex.jsp">로그인</a></li>
                 <%
                     }
                 %>

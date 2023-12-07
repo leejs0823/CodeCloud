@@ -17,8 +17,8 @@
 		<div id="bar">
 			<div id="selectbar">
 				<ul>
-               	 	<li ><a id ="post_category" class="selected" onclick="loadPage('mainPost.jsp'); select('post_category')">게시물</a></li>
-               	 	<li><a id="group_category" onclick="loadPage('mainGroup.jsp'); select('group_category')">단체</a></li>
+               	 	<li ><a id ="post_category" class="selected" onclick="loadPage('./views/main/mainPost.jsp'); select('post_category')">게시물</a></li>
+               	 	<li><a id="group_category" onclick="loadPage('./views/main/mainGroup.jsp'); select('group_category')">단체</a></li>
            		</ul>
 			</div>
 			<div id="searchbar">
