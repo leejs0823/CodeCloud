@@ -5,7 +5,7 @@
     <div class="navbar_container">
         <div id="branding">
             <a href="index.jsp" class="branding_a">
-            <img class="navbar_logo" src="../../resources/images/cc_logo.png" alt="logo">
+            <img class="navbar_logo" src="/CodeCloud/resources/images/cc_logo.png" alt="logo">
             <h1 class="branding_h1">CodeCloud</h1>
             </a>
         </div>

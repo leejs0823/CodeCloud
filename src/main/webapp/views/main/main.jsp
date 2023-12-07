@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="banner">
-		<img src="../webapp/resources/images/main_banner.png">
+		<img src="/CodeCloud/resources/images/main_banner.png">
 	</div>
 	<main>
 		<div id="bar">
@@ -32,7 +32,7 @@
 		</div>
 		<div id="sort">
 			<p>최신순</p>
-			<a><img src="../webapp/resources/images/icons/down_icon.png"></a>
+			<a><img src="/CodeCloud/resources/images/icons/down_icon.png"></a>
 		</div>
 		<div id = "content">
 			<%@ include file="./mainPost.jsp" %>
