@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>CodeCloud</title>
         <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/group/groupAdmin.css">
+        <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/group/groupAdminEdit.css">
         <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/layout/layout.css">
 </head>
 <body>

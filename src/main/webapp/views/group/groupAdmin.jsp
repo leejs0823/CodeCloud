@@ -15,17 +15,17 @@
 	
 	<%-- 그룹관리자 페이지 --%>
 	<main>
-	<div class="group_profile">
-		<div class="photo">
+		<div class="group_profile">
 			<div class="background_photo"></div>
-			<div class="profile_photo"></div>
+			<div class="profile_edit">
+				<div class="profile_photo"></div>
+				<h1 class="group_name">단체명 </h1>
+			</div>
 		</div>
-		<div>
-			<p class = "group_name">단체명</p>
+		<div class="description">
 			<p class = "group_description">단체 소개 글 나오는 부분입니다.</p>
-			<button type="button" class = "profile_edit" onClick= "location.href = '/CodeCloud/views/group/groupAdminEdit.jsp'">프로필 편집</button>
 		</div>
-	</div>
+		<button type="button" class = "edit_button" onClick= "location.href = '/CodeCloud/views/group/groupAdminEdit.jsp'">프로필 편집</button>
 	</main>
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
