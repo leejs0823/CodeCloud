@@ -40,8 +40,8 @@ public class GroupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String groupName = request.getParameter("groupName");
 		String description = request.getParameter("description");
-		String groupImage = "";
-		String groupThumbnail = "";
+		String groupImage = request.getParameter("grouptImage");
+		String groupThumbnail = request.getParameter("groupThumbnail");
 		
 		// 이미지 관련 코드 설정해야 함
 		
@@ -60,22 +60,31 @@ public class GroupServlet extends HttpServlet {
 		// 데이터베이스 연결 및 삽입
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/grouptable?serverTimezone=UTC";
-			conn = DriverManager.getConnection(url, "root", "tmdghfkd202!");
-			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			sql = "select * from grouptable";
-			rs = stmt.executeQuery(sql);
+			String url = "jdbc:mysql://localhost:3306/group?serverTimezone=UTC";
+			conn = DriverManager.getConnection(url, "staff", "codecloud@2023");
 			
-			ps = conn.prepareStatement("INSERT INTO grouptable (groupName, description, groupImage, groupThumbnail) VALUES (?, ?, ?, ?)");
-			ps.setString(1,  group.getGroupName());
-			ps.setString(2,  group.getDescription());
-			ps.setString(3,  group.getGroupImage());
-			ps.setString(4,  group.getGroupThumbnail());
-			
-			ps.executeUpdate();
-			conn.close();
-		}
-		catch(Exception e) {
+	        String checkSql = "SELECT * FROM group WHERE groupName = ?";
+	        ps = conn.prepareStatement(checkSql);
+	        ps.setString(1, groupName);
+	        rs = ps.executeQuery();
+	        
+	        if (rs.next()) {
+	            // groupName already exists, show a warning message
+	            request.setAttribute("errorMessage", "이미 존재하는 그룹명입니다.");
+	        } else {
+	            // groupName does not exist, insert the group into the database
+	            String insertSql = "INSERT INTO grouptable (groupName, description, groupImage, groupThumbnail) VALUES (?, ?, ?, ?)";
+	            ps = conn.prepareStatement(insertSql);
+	            ps.setString(1, group.getGroupName());
+	            ps.setString(2, group.getDescription());
+	            ps.setString(3, group.getGroupImage());
+	            ps.setString(4, group.getGroupThumbnail());
+
+	            ps.executeUpdate();
+	        }
+	        
+	        conn.close();
+		} catch(Exception e) {
 			System.out.println("DB 연동오류랑께. 이 오류랑께: " + e.getMessage());
 		}
 		
