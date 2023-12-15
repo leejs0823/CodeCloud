@@ -7,7 +7,7 @@ main .profile{
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	top: -10rem;
+	top: -8rem;
 	height: auto;
 }
 
@@ -151,6 +151,7 @@ main .member_content .member_list{
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	background-color: white;
 }
 
 main .member_content .member_list .member{
