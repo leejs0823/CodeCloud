@@ -18,12 +18,10 @@
 		<div class="groupAdminEdit_header">
 			<h1 >프로필 편집</h1>
 		</div>
-		<div class="photo">
-			<div class="background_photo"></div>
-			<div class="profile_edit">
-				<div class="profile_photo"></div>
-				<a href="#">프로필 사진 변경</a>
-			</div>
+		<div class="background_photo"></div>
+		<div class="profile_edit">
+			<div class="profile_photo"></div>
+			<a href="#">프로필 사진 변경</a>
 		</div>
 		<form>
 		<div class = "description">

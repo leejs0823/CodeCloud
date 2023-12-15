@@ -36,11 +36,7 @@
 		</div>
 		<div id = "content">
 			<%@ include file="./mainPost.jsp" %>
-
 		</div>
-		
-			
-		
 	</main>
 
     <%--js--%>
