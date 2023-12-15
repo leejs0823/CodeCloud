@@ -31,16 +31,6 @@
   </servlet-mapping>
   
 
-  <!-- GroupServlet 매핑 -->
-  <servlet>
-    <servlet-name>GroupServlet</servlet-name>
-    <servlet-class>controller.GroupServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GroupServlet</servlet-name>
-    <url-pattern>/group/*</url-pattern>
-  </servlet-mapping>
-
   <!-- PostServlet 매핑 -->
   <servlet>
     <servlet-name>PostServlet</servlet-name>
@@ -60,5 +50,4 @@
     <servlet-name>AuthIndex</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-
 </web-app>
