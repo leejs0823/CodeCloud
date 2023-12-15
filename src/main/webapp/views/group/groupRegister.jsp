@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
 	<title>Code Cloud</title>
-        <link rel="stylesheet" type="text/css" href="../../resources/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="../../resources/css/layout/layout.css">
-        <link rel="stylesheet" type="text/css" href="../../resources/css/group/groupRegister.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout/layout.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/group/groupRegister.css">
 </head>
 <body>
 	<script>
@@ -22,7 +22,7 @@
 		  $target.style.height = 0;
 		  $target.style.height = DEFAULT_HEIGHT + $target.scrollHeight + 'px';
 		};
-		
+		<%--
 		// 배경 사진 선택 시 이미지 업로드
 	    function triggerFileInput() {
 	        document.getElementById('groupImage').click();
@@ -47,6 +47,7 @@
 		    }
 	
 		    document.getElementById('groupImage').addEventListener('change', displaySelectedImage);
+		    --%>
 	</script>
     <%--헤더--%>
     <%@ include file="../layout/layoutNavbar.jsp" %>
@@ -57,23 +58,25 @@
 	      <p> 단체만의 맞춤형 기술블로그, <span class="blue-text">CODE CLOUD</span>가 만들어드립니다! </p>
 	     </div>
 	     <div class="groupregister-body">
-	     <form action="groupRegisterResult.jsp" enctype="multipart/form-data" method="post">
+	     <form action="${pageContext.request.contextPath}/registrationsuccess" method="post">
 	     		<!-- 이미지 업로드 구현-->
+	     		<!-- 
 				<div class="groupregister-image" onclick="triggerFileInput()">
-				    <img src="../../resources/images/group/groupImage.png" id="groupImageDisplay" style="cursor: pointer;">
+					<img src="${pageContext.request.contextPath}/resources/images/group/groupImage.png" id="groupImageDisplay" style="cursor: pointer;">
 				    <input type="file" name="groupImage" id="groupImage" accept="image/*" style="display: none;" onchange="setImage(event)">
 				    <div id="imageButtons" style="display: none;">
 				    	<button class="imageUpdateButton" onclick="updateImage()">수정하기</button>
 				        <button class="imageDeleteButton" onclick="deleteImage()">삭제하기</button>
     				</div>
 				</div>
+				-->
 				<!-- 단체 정보 입력 -->
 		         <div class="groupregister-info">
 			         	<div class="groupregister-text">
 							<h3>단체명</h3>
 							<input id="nameinput" type="text" name="groupName"  placeholder="단체명을 입력하세요." >
 							<h3 id="description">단체 소개</h3>
-							<textarea type="text" id="descriptioninput" name="description" placeholder="단체에 대해 소개해주세요!"  oninput="calcTextareaHeight(this)" ></textarea>
+							<textarea id="descriptioninput" name="description" placeholder="단체에 대해 소개해주세요!"  oninput="calcTextareaHeight(this)" ></textarea>
 						</div>
 						<button class="groupregisterButton" type="submit">단체 신청</button>
 		         </div>
@@ -84,6 +87,6 @@
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
     <%--js--%>
-    <script src="./resources/common/main_script.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/main_script.js"></script>
 </body>
 </html>
