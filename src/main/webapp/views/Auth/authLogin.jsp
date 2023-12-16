@@ -45,12 +45,12 @@ pageEncoding="UTF-8"%>
                 </button>
 
                 <div class="underButtonTextWrapper">
-                    <span class="underButtonText" onclick="authSignUp.jsp"
+                    <span class="underButtonText" onclick="location.href='authSignUp.jsp';"
                         >회원 가입</span
-                    >|
-                    <span class="underButtonText" onclick="location.href='#'"
-                        >&nbsp;&nbsp;비밀번호 초기화</span
                     >
+<!--                     <span class="underButtonText" onclick="location.href='#'"
+                        >&nbsp;&nbsp;비밀번호 초기화</span
+                    > -->
                 </div>
             </div>
         </form>
