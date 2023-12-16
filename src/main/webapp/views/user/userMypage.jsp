@@ -64,7 +64,7 @@ pageEncoding="UTF-8"%>
             					</div>
 			  </div>
 			
-			<!-- // MYPAGE -->
+			<!-- // MYPAGE PRFOILE TITLE WRAPPER-->
 			<div class ="ProfileTitleWrapper">
 				<div class="profileTitleContainer">
 					<div class="profileTitleText">MYPAGE</div>
@@ -76,13 +76,54 @@ pageEncoding="UTF-8"%>
 					</span>
 				</div>
 				
-				<div class="profileLogout">
+				<div class="profileLogout" onclick="logout()" >
 				로그아웃 
 				</div>
 				<!-- content -->
 			</div>
 			  
-            
+            <div class ="ProfileTileWrapper">
+            <div class="ProfileTile">
+            			  		<img
+			                class="profileTileIcon"
+			                src="../../resources/images/group_icon.png"
+			                alt="group"
+            					/>
+            					<div class="profileTileText">
+            					내가 속한 단체 
+            					</div>
+            </div>
+                        <div class="ProfileTile">
+            			  		<img
+			                class="profileTileIcon2"
+			                src="../../resources/images/like_icon.png"
+			                alt="group"
+            					/>
+            					<div class="profileTileText">
+            			좋아요한 게시물 
+            					</div>
+            </div>
+                        <div class="ProfileTile">
+            			  		<img
+			                class="profileTileIcon2"
+			                src="../../resources/images/post_icon.png"
+			                alt="group"
+            					/>
+            					<div class="profileTileText">
+            					작성한 게시물  
+            					</div>
+            </div>
+                        <div class="ProfileTile">
+            			  		<img
+			                class="profileTileIcon2"
+			                src="../../resources/images/setting_icon.png"
+			                alt="group"
+            					/>
+            					<div class="profileTileText">
+            					정보 수정 
+            					</div>
+            </div>
+            </div>
             </div> 
             
             
@@ -95,6 +136,25 @@ pageEncoding="UTF-8"%>
             
         <%--푸터--%> <%@ include file="../../views/layout/layoutFooter.jsp" %>
         <%--js--%>
-        <script src="./resources/common/main_script.js"></script>
+        
+            <script>
+         
+        function logout() {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/authLogout';
+            document.body.appendChild(form);
+            form.submit();
+        }
+        // window 로드시 로그인여부 확인 ,로그인 정보가 세션에 없으면 index.jsp로이동 
+                    window.onload = function() {
+                <% session = request.getSession(false); // Get session without creating a new one
+                   if (session == null || session.getAttribute("user") == null) { // Check if "user" attribute is not set
+                %>
+                    window.location.href = "../../index.jsp"; // Redirect to index.jsp
+                <% } %>
+            };
+        
+    </script>
     </body>
 </html>

@@ -14,8 +14,8 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	border: 1px solid red;
 	justify-content: space-between;
+	margin-bottom: 2.8rem;
 	
 	
 }
@@ -55,4 +55,43 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 100%; /* 1.8rem */
+	cursor: pointer;
+}
+
+.ProfileTileWrapper{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap:4rem;
+	align-items: center;
+	margin-bottom: 15rem;
+}
+
+.ProfileTile{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 20rem;
+	height: 20rem;
+	background-color: #F8F8FA;
+	border-radius: 8px;
+	gap:2.2rem;
+	cursor: pointer;
+	
+}
+
+.profileTileIcon{
+	width: 5rem;
+	height: 5rem;
+}
+
+.profileTileIcon2
+{
+	width: 4rem;
+	height: 4rem;
+}
+.profileTileText{
+	font-size: 2rem;
+	
 }

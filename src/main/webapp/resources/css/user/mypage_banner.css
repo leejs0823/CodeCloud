@@ -44,12 +44,12 @@
 .ProfileBannerWrapper {
     width: 100%;
     height: 30rem;
-    border: 1px solid black;
+
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center; 
-    overflow: hidden; 
+    
 }
 
 .ProfileBannerContainer {
