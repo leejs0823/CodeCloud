@@ -15,7 +15,7 @@
 	    <%@ include file="../../views/layout/layoutNavbar.jsp" %>
 	    
 	    <!-- 회원가입 폼 -->
-	    <form class="signUpInputContainer" action="/auth/signup" method="POST">
+	    <form class="signUpInputContainer" action="${pageContext.request.contextPath}/signup" method="POST">
 	    <div class="authSignUpText">회원 가입</div>
 	        <!-- 이메일 입력 -->
 	        <div class="signUpInputWrapper">
@@ -48,7 +48,7 @@
 	        <!-- 한줄소개 -->
 	        <div class="signUpInputWrapper">
 	            <h2 class="signUpInputTitleText">한줄소개</h2>
-	            <input class="signUpInput" type="text" name="introduce" placeholder="한줄소개를 입력해주세요.">
+	            <input class="signUpInput" type="text" name="description" placeholder="한줄소개를 입력해주세요.">
 	        </div>
 	
 	        <!-- 가입하기 버튼 -->

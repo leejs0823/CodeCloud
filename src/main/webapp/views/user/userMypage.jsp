@@ -94,7 +94,7 @@
 		function logout() {
 			var form = document.createElement('form');
 			form.method = 'POST';
-			form.action = '/authLogout';
+			form.action = '${pageContext.request.contextPath}/authLogout';
 			document.body.appendChild(form);
 			form.submit();
 		}
