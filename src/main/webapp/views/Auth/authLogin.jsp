@@ -62,12 +62,6 @@ pageEncoding="UTF-8"%>
             // 입력 필드 값 변경 시 필요한 로직
         }
         
-       // window 로드시 로그인여부 확인 
-        window.onload = function() {
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('error')) {
-                alert('로그인 실패: 없는 계정입니다.');
-            }
-        };
+      
     </script>
 </body>

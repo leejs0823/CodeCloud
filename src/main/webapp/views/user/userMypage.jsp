@@ -46,8 +46,26 @@
 		<div class="ProfileTitleWrapper">
 			<div class="profileTitleContainer">
 				<div class="profileTitleText">MYPAGE</div>
-				<h2 class="profileNameText">000님, 안녕하세요!</h2>
-				<span class="profileContentText"> 블라블 </span>
+				<h2 class="profileNameText">
+				            <% 
+                 user = (User) session.getAttribute("user");
+                if (user != null) {
+                    out.print(user.getNickname() + "님, 안녕하세요!");
+                } else {
+                    out.print("구클님, 안녕하세요!");
+                }
+            %>
+				</h2>
+				<span class="profileContentText"> 
+								            <% 
+                 user = (User) session.getAttribute("user");
+                if (user != null) {
+                    out.print(user.getDescription());
+                } else {
+                    out.print("구클님, 안녕하세요!");
+                }
+            %>
+				 </span>
 			</div>
 
 			<div class="profileLogout" onclick="logout()">로그아웃</div>
@@ -94,7 +112,7 @@
 		function logout() {
 			var form = document.createElement('form');
 			form.method = 'POST';
-			form.action = '${pageContext.request.contextPath}/authLogout';
+			form.action = '${pageContext.request.contextPath}/logoutServlet';
 			document.body.appendChild(form);
 			form.submit();
 		}
