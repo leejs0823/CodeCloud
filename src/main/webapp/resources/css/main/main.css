@@ -49,6 +49,7 @@ main #selectbar .selected{
 
 main #selectbar a:hover {
     font-weight: 700;
+    cursor: pointer;
 }
 main #sort{
 	padding-left: 2rem;

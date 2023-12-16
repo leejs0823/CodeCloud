@@ -11,14 +11,14 @@
 </head>
 <body>
 	<div id="banner">
-		<img src="../webapp/resources/images/main_banner.png">
+		<img src="/CodeCloud/resources/images/main_banner.png">
 	</div>
 	<main>
 		<div id="bar">
 			<div id="selectbar">
 				<ul>
-               	 	<li ><a id ="post_category" class="selected" onclick="loadPage('mainPost.jsp'); select('post_category')">게시물</a></li>
-               	 	<li><a id="group_category" onclick="loadPage('mainGroup.jsp'); select('group_category')">단체</a></li>
+               	 	<li ><a id ="post_category" class="selected" onclick="loadPage('./views/main/mainPost.jsp'); select('post_category')">게시물</a></li>
+               	 	<li><a id="group_category" onclick="loadPage('./views/main/mainGroup.jsp'); select('group_category')">단체</a></li>
            		</ul>
 			</div>
 			<div id="searchbar">
@@ -32,19 +32,12 @@
 		</div>
 		<div id="sort">
 			<p>최신순</p>
-			<a><img src="../webapp/resources/images/icons/down_icon.png"></a>
+			<a><img src="/CodeCloud/resources/images/icons/down_icon.png"></a>
 		</div>
 		<div id = "content">
 			<%@ include file="./mainPost.jsp" %>
-
 		</div>
-		
-			
-		
 	</main>
-	
-    <%--푸터--%>
-    <%@ include file="../layout/layoutFooter.jsp" %>
 
     <%--js--%>
     <script src="../../resources/js/main/mainDetail.js"></script>
