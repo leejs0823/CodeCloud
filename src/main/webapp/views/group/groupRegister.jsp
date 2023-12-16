@@ -75,9 +75,9 @@
 		         <div class="groupregister-info">
 			         	<div class="groupregister-text">
 							<h3>단체명</h3>
-							<input id="nameinput" type="text" name="groupName"  placeholder="단체명을 입력하세요." >
-							<h3 id="description">단체 소개</h3>
-							<textarea id="descriptioninput" name="description" placeholder="단체에 대해 소개해주세요!"  oninput="calcTextareaHeight(this)" ></textarea>
+							<input class="nameInput" type="text" name="groupName" placeholder="최대 30자" >
+							<h3>단체 소개</h3>
+							<textarea class="descriptionInput" name="description" placeholder="최대 100자" oninput="calcTextareaHeight(this)" ></textarea>
 						</div>
 						<button class="groupregisterButton" type="submit">단체 신청</button>
 		         </div>

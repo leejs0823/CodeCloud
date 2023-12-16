@@ -29,10 +29,10 @@
 	<div class="postWrapper">
 		<div class="postForm">
 	      <h1> 글 작성하기 </h1>
-	     <form action="${pageContext.request.contextPath}/registrationsuccess" method="post">
+	     <form action="${pageContext.request.contextPath}/no" method="post">
 		         <div class="postInputWrapper">
-							<input class="titleInput" type="text" placeholder="제목" name="groupName" >
-							<textarea class="contentInput" name="description" placeholder="내용을 입력해주세요" oninput="calcTextareaHeight(this)" ></textarea>
+							<input class="titleInput" type="text" placeholder="제목" name="title" >
+							<textarea class="contentInput" name="content" placeholder="내용을 입력해주세요" oninput="calcTextareaHeight(this)" ></textarea>
 						<button class="postSendButton" type="submit">게시하기</button>
 		         </div>
 		  </form>

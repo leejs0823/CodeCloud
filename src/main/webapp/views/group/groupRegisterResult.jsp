@@ -60,15 +60,14 @@
     <div class="groupresult-container">
     	<div class="groupresult-header">
 	        <h1>단체 등록이 신청되었습니다.</h1>
-	        <p>단체가 등록되었습니다.</p>
 	        <p>이제 초대 링크를 통해 회원을 모아보려무나~</p>    
+		<img src="/CodeCloud/resources/images/cc_logo.png">
 		</div>
-	    등록된 단체 정보 출력
 	    <div class="groupresult-body">
 	        <h3>등록된 단체 정보</h3>
 	        <% Group registeredGroup = (Group) request.getAttribute("registeredGroup"); %>
-	        <p>단체명: <%= registeredGroup.getGroupName() %></p>
-	        <p>단체 소개: <%= registeredGroup.getDescription() %></p>
+	        <p class="nameOutput"> <%= registeredGroup.getGroupName() %></p>
+	        <p class="descriptionOutput"> <%= registeredGroup.getDescription() %></p>
 	        <%-- <img class="group-thumbnail" src="<%= registeredGroup.getGroupThumbnail() %>" alt="단체 썸네일">--%>
 	    </div>
 	    <div class="groupresult-footer">
