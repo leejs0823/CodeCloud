@@ -19,7 +19,7 @@
                     // 사용자가 로그인한 경우
                     if(user != null) {
                 %>
-                <li><a href=/CodeCloud//views/user/userMypage.jsp">마이페이지</a></li>
+                <li><a href="/CodeCloud/views/user/userMypage.jsp">마이페이지</a></li>
                 <%
                 } else { // 사용자가 로그인하지 않은 경우
                 %>

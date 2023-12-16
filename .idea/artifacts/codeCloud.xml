@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="codeCloud">
+    <output-path>$PROJECT_DIR$/out/artifacts/codeCloud</output-path>
+    <root id="root" />
+  </artifact>
+</component>
