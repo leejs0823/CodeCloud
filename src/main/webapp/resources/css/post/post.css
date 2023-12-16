@@ -1,4 +1,4 @@
-.authWrapper h1 {
+.postWrapper h1 {
     text-align: center;
 	flex-direction: column;
 	display: flex;
@@ -11,7 +11,7 @@
     color: #4285F4;
     margin-bottom: 2rem;
 }
-.authWrapper p {
+.postWrapper p {
 	flex-direction: column;
 	display: flex;
 	justify-content: center;
@@ -21,7 +21,7 @@
     text-align: left;
     margin: 1rem;
 }
-.authWrapper {
+.postWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,14 +32,14 @@
     color: #333;
 }
 
-.authForm {
+.postForm {
     display: flex;
     flex-direction: column;
     width: 80vw;
     max-width: 80rem;
 }
 
-.authInputWrapper {
+.postInputWrapper {
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;
@@ -74,18 +74,6 @@
     background: #f8f8fa;
     border: none;
 	border: 1px solid var(--gray4, #AEAFB9);
-}
-
-.authInput:focus {
-    border: 0.2rem solid #4285F4;
-}
-
-.authButtonWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5rem;
 }
 
 .postSendButton {
