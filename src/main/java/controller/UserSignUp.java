@@ -7,10 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import utility.UserSignUpUtil;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-@WebServlet("/auth/signup")
+@WebServlet("/signup")
 public class UserSignUp extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -18,38 +20,52 @@ public class UserSignUp extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 정보 가져 오기
+        String email = request.getParameter("email");
+        String password = request.getParameter("pwd");
+        String nickname = request.getParameter("nickname");
+        String description = request.getParameter("description");
+
+        System.out.println("🚀 회원가입 시도: " + email);
+
+        // Attempt to save the user
+        boolean isUserSaved = saveUser(email, password, nickname, description);
+
+        if (isUserSaved) {
+            System.out.println("🚀 회원가입 성공: " + email);
+            response.sendRedirect("index.jsp"); // Redirect to the index page
+        } else {
+            System.out.println("❌ 회원가입 실패: " + email);
+            response.sendRedirect("/signup.jsp?error=true"); // Redirect to the signup page with an error flag
+        }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 정보 가져 오기 
-        String email = request.getParameter("email");
-        String password = request.getParameter("pwd"); 
-        String nickname = request.getParameter("nickname");
-        String description = request.getParameter("introduce");
+    private boolean saveUser(String email, String password, String nickname, String description) {
+        // Connect to DB and insert new user
+		String url = "jdbc:mysql://db-jv9ds-kr.vpc-pub-cdb.ntruss.com:3306/codecloud";
+		String dbUser = "staff";
+		String dbPassword = "codecloud@2023";
 
-        try {
-            // Create user 
-            User newUser = new User();
-            newUser.setEmail(email);
-            newUser.setPassword(password); // 여기서 비밀번호 해싱을 고려해야 함
-            newUser.setNickname(nickname);
-            newUser.setDescription(description);
-            newUser.setGroupCount(0); 
-            newUser.setGroups(new ArrayList<>()); 
-            newUser.setAdmin(false);
+        System.out.println("🚀 DB 연결 시도");
 
-            // 데이터베이스에 사용자 저장
-            UserSignUpUtil.saveUser(newUser);
+        try (Connection conn = DriverManager.getConnection(url, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO Users (email, password, nickname, description) VALUES (?, ?, ?, ?)")) {
 
-            // 성공 응답 보내기
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.getWriter().write("회원가입 성공");
-        } catch (Exception e) {
-            // 실패 응답 보내기
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("회원가입 실패: " + e.getMessage());
+            stmt.setString(1, email);
+            stmt.setString(2, password); // Remember to hash the password
+            stmt.setString(3, nickname);
+            stmt.setString(4, description);
+
+            int affectedRows = stmt.executeUpdate();
+
+            System.out.println("🚀 쿼리 실행: " + stmt);
+
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            System.out.println("❌ DB 오류: " + e.getMessage());
+            e.printStackTrace();
+            return false;
         }
     }
 }

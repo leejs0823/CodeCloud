@@ -56,6 +56,7 @@
 	    <div class="groupregister-header">   
 	      <h1> 단체 등록하기 </h1>
 	      <p> 단체만의 맞춤형 기술블로그, <span class="blue-text">CODE CLOUD</span>가 만들어드립니다! </p>
+	      
 	     </div>
 	     <div class="groupregister-body">
 	     <form action="${pageContext.request.contextPath}/registrationsuccess" method="post">
