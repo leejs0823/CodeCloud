@@ -22,6 +22,10 @@ public class LoginServlet extends HttpServlet {
 
 		if (user != null) {
 			HttpSession session = request.getSession();
+		      // 세션 유효 시간을 길게 설정1시간 
+	        int sessionTimeoutSeconds = 3600;
+	        session.setMaxInactiveInterval(sessionTimeoutSeconds);
+	        
 			session.setAttribute("user", user);
 			response.sendRedirect("index.jsp");
 			System.out.println("🚀 로그인 성공: " + email);

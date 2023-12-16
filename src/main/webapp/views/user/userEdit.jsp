@@ -13,29 +13,37 @@
 <body>
 	    <%--헤더--%>
 	    <%@ include file="../../views/layout/layoutNavbar.jsp" %>
-	    
+	        <%
+        
+	    String nickname = "";
+	    String description = "";
+	    String email = "";
+        if (session.getAttribute("user") != null) {
+            user = (User) session.getAttribute("user");
+            
+            nickname = user.getNickname(); 
+            description = user.getDescription();
+            email = user.getEmail();
+        }
+    %>
 	    <!-- 회원가입 폼 -->
-	    <form class="signUpInputContainer" action="${pageContext.request.contextPath}/signup" method="POST">
+	    <form class="signUpInputContainer" action="${pageContext.request.contextPath}/editServlet" method="POST">
+	        <input type="hidden" name="action" value="updateUser"> <!-- "action" 파라미터 추가 -->
+	    
 	    <div class="authSignUpText">정보 수정</div>
 	        <!-- 이메일 입력 -->
 	        <div class="signUpInputWrapper">
 	            <h2 class="signUpInputTitleText">이메일(수정불가)</h2>
-	            <input class="signUpInput" type="email" name="email" placeholder="이메일을 입력해주세요." disabled>
+	            
+	            <input class="signUpInput" type="email" name="email" placeholder="이메일을 입력해주세요." value="<%= email %>"  readonly>
 	            <div id="emailValidationMessage" class="validationMessage"></div>
 	        </div>
 	        
 	        <!-- 닉네임 입력 -->
 	        <div class="signUpInputWrapper">
-    <h2 class="signUpInputTitleText">*닉네임</h2>
-    <%
-        // Check if the user is stored in the session and get the nickname
-        String nickname = "";
-        if (session.getAttribute("user") != null) {
-            user = (User) session.getAttribute("user");
-            nickname = user.getNickname(); // Assuming 'getNickname' method exists in your User class
-        }
-    %>
-    <input class="signUpInput" type="text" name="nickname" placeholder="닉네임을 입력해주세요." required value="<%= nickname %>">
+    		<h2 class="signUpInputTitleText">*닉네임</h2>
+
+		    <input class="signUpInput" type="text" name="nickname" placeholder="닉네임을 입력해주세요." required value="<%= nickname %>">
 	        </div>
 	
 	        <!-- 한줄소개 -->
@@ -43,13 +51,13 @@
 	            <h2 class="signUpInputTitleText">한줄소개</h2>
 	                <%
         // Check if the user is stored in the session and get the nickname
-        String description = "";
+        
         if (session.getAttribute("description") != null) {
             user = (User) session.getAttribute("description");
-            description = user.getDescription(); // Assuming 'getNickname' method exists in your User class
+            
         }
     %>
-	            <input class="signUpInput" type="text" name="description" value = "<%=description %> placeholder="한줄소개를 입력해주세요.">
+	            <input class="signUpInput" type="text" name="description" placeholder="한줄소개를 입력해주세요."  value = "<%=description %>">
 	        </div>
 	
 	        <!-- 가입하기 버튼 -->

@@ -72,29 +72,24 @@
 			<!-- content -->
 		</div>
 
-		<div class="ProfileTileWrapper">
-			<div class="ProfileTile">
-				<img class="profileTileIcon"
-					src="../../resources/images/group_icon.png" alt="group" />
-				<div class="profileTileText">내가 속한 단체</div>
-			</div>
-			<div class="ProfileTile">
-				<img class="profileTileIcon2"
-					src="../../resources/images/like_icon.png" alt="group" />
-				<div class="profileTileText">좋아요한 게시물</div>
-			</div>
-			<div class="ProfileTile">
-				<img class="profileTileIcon2"
-					src="../../resources/images/post_icon.png" alt="group" />
-				<div class="profileTileText">작성한 게시물</div>
-			</div>
-			<div class="ProfileTile">
-				<img class="profileTileIcon2"
-					src="../../resources/images/setting_icon.png" alt="group" />
-				<div class="profileTileText">정보 수정</div>
-			</div>
-		</div>
-	</div>
+<div class="ProfileTileWrapper">
+    <div class="ProfileTile" onclick="navigateToPage('user/group')">
+        <img class="profileTileIcon" src="../../resources/images/group_icon.png" alt="group" />
+        <div class="profileTileText">내가 속한 단체</div>
+    </div>
+    <div class="ProfileTile" onclick="navigateToPage('user/like')">
+        <img class="profileTileIcon2" src="../../resources/images/like_icon.png" alt="like" />
+        <div class="profileTileText">좋아요한 게시물</div>
+    </div>
+    <div class="ProfileTile" onclick="navigateToPage('user/post')">
+        <img class="profileTileIcon2" src="../../resources/images/post_icon.png" alt="post" />
+        <div class="profileTileText">작성한 게시물</div>
+    </div>
+    <div class="ProfileTile" onclick="navigateToPage('userEdit.jsp')">
+        <img class="profileTileIcon2" src="../../resources/images/setting_icon.png" alt="settings" />
+        <div class="profileTileText">정보 수정</div>
+    </div>
+</div>
 
 
 	<!-- profile wrapper -->
@@ -123,6 +118,16 @@ if (session == null || session.getAttribute("user") == null) { // Check if "user
 		window.location.href = "../../index.jsp"; // Redirect to index.jsp
 	<%}%>
 		};
+		
+		// 이동 
+	
+	    function navigateToPage(path) {
+	        window.location.href = path;
+	    }
+	
+
+		
+		
 	</script>
 </body>
 </html>

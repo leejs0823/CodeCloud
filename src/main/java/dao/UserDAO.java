@@ -85,6 +85,82 @@ public class UserDAO {
             return false;
         }
     }
+    
+    // 유저 정보 수정nickname, description
+ // 유저 정보 수정
+    public boolean updateUser(String userEmail, String newNickname, String newDescription) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            // Check if the user with the given ID exists
+            if (!userExists(userEmail)) {
+                System.out.println("❌ 해당 사용자가 존재하지 않습니다: " + userEmail);
+                return false;
+            }
+
+            // Prepare SQL statement for updating user information
+            String sql = "UPDATE Users SET nickname = ?, description = ? WHERE email = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, newNickname);
+                stmt.setString(2, newDescription);
+                stmt.setString(3, userEmail);
+
+                int affectedRows = stmt.executeUpdate();
+                return affectedRows > 0;
+            }
+        } catch (SQLException e) {
+            System.out.println("❌ DB 오류: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // 사용자 ID로 사용자 존재 여부 확인
+    public boolean userExists(String userId) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            String query = "SELECT COUNT(*) FROM Users WHERE email = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, userId);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getInt(1) > 0;
+                    }
+                }
+            }
+            return false;
+        } catch (SQLException e) {
+            System.out.println("❌ DB 오류: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
+    // Method to retrieve a user by email
+    public User getUserByEmail(String email) {
+        User user = null;
+        String query = "SELECT * FROM Users WHERE email = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, email);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    user = new User();
+                    // Populate user object with data from the database
+                    user.setId(rs.getLong("id"));
+                    user.setEmail(rs.getString("email"));
+                    user.setNickname(rs.getString("nickname"));
+                    user.setDescription(rs.getString("description"));
+                    // Add any other user properties that are in your database here
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle exception appropriately
+        }
+        return user;
+    }
 
     
 }
