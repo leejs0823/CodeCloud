@@ -7,16 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Code Cloud</title>
-        <link rel="stylesheet" type="text/css" href="../resources/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="../resources/css/main/main.css">
-        <link rel="stylesheet" type="text/css" href="../resources/css/layout/layout.css">
-        <link rel="stylesheet" type="text/css" href="../resources/css/common/notFound.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main/main.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout/layout.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/notFound.css">
 </head>
 <body>
 		<%--헤더--%>
 	    <%@ include file="../views/layout/layoutNavbar.jsp" %>
 	    <div class="notFoundWrapper">
-		     <img src="../resources/images/notfound_logo.png" class="notfound_logo"/>
+		     <img src="${pageContext.request.contextPath}/resources/images/notfound_logo.png" class="notfound_logo"/>
 		     <h1 class="notfound_content" style="text-align:center;">
 		     404 Not Found<br/>
 		     <br/>

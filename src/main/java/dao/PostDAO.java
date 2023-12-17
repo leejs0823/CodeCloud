@@ -45,6 +45,15 @@ public class PostDAO {
                 post.setContent(rs.getString("content"));
                 post.setCreatedAt(rs.getTimestamp("createdAt").toLocalDateTime());
                 post.setUpdatedAt(rs.getTimestamp("updatedAt").toLocalDateTime());
+                // viewCnt
+                post.setViewCnt(rs.getInt("viewCnt"));
+                post.setLikeCnt(rs.getInt("likeCnt"));
+//                post.setComments(rs.getInt("likeCnt"));
+                
+                // likeCnt
+                
+                // commentCnt
+                
                 return post;
             }
         }
@@ -90,22 +99,65 @@ public class PostDAO {
         return groups;
     }
     
-    // 사용자의 그룹 이름을 가져오는 메서드
-    public String findGroupNameByGroupId(Long groupId) throws SQLException {
+    // POST ID로 Group Name가져오기 
+    public String findGroupNameByPostId(int postId) throws SQLException {
+
         String groupName = null;
-        String sql = "SELECT groupName FROM `Groups` WHERE groupId = ?";
-        
+        int groupId = 0; // INT로 변경
+
+        // postId에서 groupId를 가져오는 쿼리문 추가
+        String groupIdQuery = "SELECT group_id FROM Posts WHERE id = ?";
+        String groupNameQuery = "SELECT groupName FROM `Groups` WHERE groupId = ?";
+
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement groupIdStmt = conn.prepareStatement(groupIdQuery);
+             PreparedStatement groupNameStmt = conn.prepareStatement(groupNameQuery)) {
+
+            // postId로 groupId를 가져오기 위한 쿼리 실행
+            groupIdStmt.setInt(1, postId); // INT로 변경
+            ResultSet groupIdResultSet = groupIdStmt.executeQuery();
             
-            stmt.setLong(1, groupId);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                groupName = rs.getString("groupName");
+            if (groupIdResultSet.next()) {
+                groupId = groupIdResultSet.getInt("group_id"); // INT로 변경
             }
+            
+            // 중간 진행 상황 출력
+            System.out.println("🤖 진행중 - groupId 가져오기 완료");
+
+            if (groupId != 0) { // 0과 비교하여 NULL 검사(INT 형식에서는 NULL 대신 0 사용)
+                // groupId로 groupName을 가져오기 위한 쿼리 실행
+                groupNameStmt.setInt(1, groupId); // INT로 변경
+                ResultSet groupNameResultSet = groupNameStmt.executeQuery();
+
+                if (groupNameResultSet.next()) {
+                    groupName = groupNameResultSet.getString("groupName");
+                } else {
+                    // groupName을 찾지 못한 경우
+                    System.err.println("❌ groupName을 찾지 못했습니다.");
+                }
+            } else {
+                // groupId를 찾지 못한 경우
+                System.err.println("❌ groupId를 찾지 못했습니다.");
+            }
+            
+            // 중간 진행 상황 출력
+            System.out.println("🤖 진행중 - groupName 가져오기 완료");
+            System.out.println(groupName);
+            System.out.println("🤖 진행중 - groupName은 위 ");
+        } catch (SQLException e) {
+            // 데이터베이스 관련 예외 처리
+            System.err.println("❌ 데이터베이스 오류: " + e.getMessage());
+            throw e; // 예외를 다시 던져서 상위 호출자에게 처리를 위임
         }
+
         return groupName;
     }
+
+
+    
+ //
+    
+    
     
     // 사용자가 속한 그룹의 ID를 가져오는 메서드
     public Long getGroupIdByUserId(Long userId) throws SQLException {
@@ -148,5 +200,82 @@ public class PostDAO {
         }
         return allPosts;
     }
+    
+	// 포스트 조회수 증가 메서드
+    public void addViewCnt(int postId) throws SQLException {
+        String sql = "UPDATE Posts SET viewCnt = viewCnt + 1 WHERE id = ?";
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, postId);
+            int affectedRows = stmt.executeUpdate();
+            
+            if (affectedRows > 0) {
+                System.out.println("👀 조회수가 1 증가했습니다.");
+            } else {
+                System.err.println("❌ 조회수 증가에 실패했습니다.");
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ 데이터베이스 오류: " + e.getMessage());
+            throw e;
+        }
+    }
+    
+    // toggle like 
+    public boolean toggleLike(int postId, long userId) throws SQLException {
+        // 사용자가 이미 좋아요를 눌렀는지 확인
+        String checkSql = "SELECT EXISTS (SELECT 1 FROM UserLikes WHERE userId = ? AND postId = ?)";
+        boolean isLiked;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+            checkStmt.setLong(1, userId);
+            checkStmt.setLong(2, postId);
+            
+            ResultSet rs = checkStmt.executeQuery();
+            rs.next();
+            isLiked = rs.getBoolean(1);
+        }
+
+        String sql;
+        if (isLiked) {
+            // 이미 좋아요를 눌렀다면 좋아요 취소
+            sql = "DELETE FROM Likes WHERE userId = ? AND postId = ?";
+        } else {
+            // 좋아요를 누르지 않았다면 추가
+            sql = "INSERT INTO Likes (userId, postId) VALUES (?, ?)";
+        }
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, userId);
+            stmt.setLong(2, postId);
+            stmt.executeUpdate();
+        }
+
+        return !isLiked;
+    }
+
+    public int getLikeCnt(int postId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM Likes WHERE postId = ?";
+        int likeCount = 0;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, postId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                likeCount = rs.getInt(1);
+            }
+        }
+
+        return likeCount;
+    }
+
+    
+    
+    
+
 
 }
