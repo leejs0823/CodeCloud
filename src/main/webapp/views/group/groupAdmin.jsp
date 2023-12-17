@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="model.Group" %>
+<%@ page import="dao.GroupDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +15,21 @@
     <%@ include file="../layout/layoutNavbar.jsp" %>
 	
 	<%-- 그룹관리자 페이지 --%>
+	<% 
+	GroupDAO groupDAO = new GroupDAO();
+	int id = 1;
+	Long groupId = Long.valueOf(id);
+	Group group = (Group)groupDAO.getGroupById(groupId);
+	
+	%>
 	<main>
 		<div class="background_photo"></div>
 		<div class="profile">
 			<div class="profile_edit">	
 				<div class="profile_photo"></div>
-				<h1 class="group_name">단체명 </h1>
+				<h1 class="group_name"><%=group.getGroupName() %> </h1>
 			</div>
-			<p class = "group_description">단체 소개 글 나오는 부분입니다.  안녕하세요 코드클라우드입니다. 단체만의 맞춤형 블로그를 제공하는 플랫폼입니다. 파이팅!! 100자 정도 적으면 이정도 들어가지 않을까요?</p>
+			<p class = "group_description"><%=group.getDescription() %></p>
 			<button type="button" class = "edit_button" onClick= "location.href = '/CodeCloud/views/group/groupAdminEdit.jsp'">프로필 편집</button>
 		</div>
 		<div class="content">
@@ -168,52 +176,107 @@
 		</div>
 		<div class = "member_content">
 			<h2>MEMBER</h2>
+			<div class = "searchbar">
 			<form>
 				<input type = "text" class = "search_input" name = "keyword" placeholder = "이름 검색"/>
+				<input type = "submit" class = "search_button" value = "검색"/>
 			</form>
+			</div>
 			<div class = "member_list">
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+						<div class = "admin">[관리자]</div>
+					</div>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<button type="button" class = "delete_button" onclick="showConfirmation()">삭제</button>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 			</div>
-			<button type="button" class = "member_button">권한 설정</button>
+
+			<div class = "pagination">
+			<%-- 구현 예정 --%>
+			</div>
+			<div class="group_invite">
+				<p>링크를 통해 새 멤버를 추가하세요!</p>
+				<p class="copy_link" onClick = "copyLink()">초대 링크 복사하기</p>
+			</div>
 		</div>
 		</div>
 	</main>

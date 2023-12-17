@@ -27,6 +27,27 @@ main #searchbar{
 	height: 4rem;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+}
+
+main #searchbar .search_input{
+	border: none;
+    border-bottom: 1px solid #aeafb9;
+    outline: none;
+    padding: 5px;
+    width: 18rem;
+    font-size: 1.5rem;
+}
+
+main #searchbar .search_button{
+	background-color: white;
+    width: 5rem;
+    height: 2.7rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color:  #aeafb9;
+    border-radius: 1.5rem;
+    border: 1px solid #aeafb9;
 }
 
 main #selectbar ul {
@@ -79,6 +100,7 @@ main #content .frame .post{
 	border-radius: 40px;
 	border: 1px solid #D9D9D9;
 	box-shadow: 1px 1px 10px 0px #D9D9D9;
+	cursor: pointer;
 }
 main #content .group_frame .group{
 	padding: 1.5rem;
@@ -87,6 +109,7 @@ main #content .group_frame .group{
 	height: 30rem;
 	flex-direction: column;
 	align-items: center;
+	cursor: pointer;
 }
 main #content .frame .post .thumbnail{
 	background-color: #DEEBF8;

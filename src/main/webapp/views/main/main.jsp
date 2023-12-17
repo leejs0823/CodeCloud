@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="banner">
-		<img src="/CodeCloud/resources/images/main_banner.png">
+		<img src="/CodeCloud/resources/images/main_banner_image.png">
 	</div>
 	<main>
 		<div id="bar">
@@ -19,15 +19,13 @@
 				<ul>
                	 	<li ><a id ="post_category" class="selected" onclick="loadPage('./views/main/mainPost.jsp'); select('post_category')">게시물</a></li>
                	 	<li><a id="group_category" onclick="loadPage('./views/main/mainGroup.jsp'); select('group_category')">단체</a></li>
-           		</ul>
+           		</ul> 
 			</div>
 			<div id="searchbar">
-				<div>
 				<form>
-					<input type="text" name="search" value="검색어를 입력하세요."/>
-					<input type="submit" value="검색"/>
+					<input type="text" name="search" class = "search_input" placeholder="검색어을 입력하세요."/>
+					<input type="submit" class = "search_button" value="검색"/>
 				</form>
-				</div>
 			</div>
 		</div>
 		<div id="sort">
