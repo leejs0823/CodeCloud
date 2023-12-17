@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Group;
+import model.GroupMembership;
+import model.User;
+
 
 public class GroupDAO {
 	
@@ -51,4 +54,83 @@ public class GroupDAO {
             e.printStackTrace();
         } 
     }
+	
+	public Long getLeaderId(Long groupId) {
+		String query = "SELECT * FROM codecloud.GroupMemberships WHERE groupId = ? AND role = 'leader'";
+		try(Connection conn = DatabaseConnection.getConnection();
+        		PreparedStatement stmt = conn.prepareStatement(query);) {
+
+			stmt.setLong(1, groupId);
+        	
+        	ResultSet rs = stmt.executeQuery();
+        	
+        	if(rs.next()) {
+                return rs.getLong("userId");
+        	}
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+	}
+
+	public String getUserById(Long userId) {
+        
+		String query = "SELECT * FROM codecloud.Users WHERE id = ?";
+
+        try(Connection conn = DatabaseConnection.getConnection();
+        		PreparedStatement stmt = conn.prepareStatement(query);) {
+
+            stmt.setLong(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("nickname");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+        return null;
+    }
+	
+	public Long[] getUsersByGroupId(Long groupId) {
+		Long[] userIds = null;
+		String query1 = "SELECT COUNT(userId) FROM codecloud.GroupMemberships WHERE groupId = ? AND role = 'member'";
+		try(Connection conn = DatabaseConnection.getConnection();
+        		PreparedStatement stmt = conn.prepareStatement(query1);) {
+
+            stmt.setLong(1, groupId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            int rowCount = 0;
+            if (rs.next()) {
+                rowCount = rs.getInt(1);
+            }
+            userIds = new Long[rowCount];
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+		String query2 = "SELECT userId FROM codecloud.GroupMemberships WHERE groupId = ? AND role = 'member'";
+		try(Connection conn = DatabaseConnection.getConnection();
+        		PreparedStatement stmt = conn.prepareStatement(query2);) {
+
+            stmt.setLong(1, groupId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            int i = 0;
+            while(rs.next()) {
+            	userIds[i] = rs.getLong("userId");
+            	i++;
+            }
+            return userIds;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+        return null;
+		
+	}
 }
