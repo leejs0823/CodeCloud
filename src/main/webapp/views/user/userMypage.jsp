@@ -46,37 +46,50 @@
 		<div class="ProfileTitleWrapper">
 			<div class="profileTitleContainer">
 				<div class="profileTitleText">MYPAGE</div>
-				<h2 class="profileNameText">000님, 안녕하세요!</h2>
-				<span class="profileContentText"> 블라블 </span>
+				<h2 class="profileNameText">
+				            <% 
+                 user = (User) session.getAttribute("user");
+                if (user != null) {
+                    out.print(user.getNickname() + "님, 안녕하세요!");
+                } else {
+                    out.print("구클님, 안녕하세요!");
+                }
+            %>
+				</h2>
+				<span class="profileContentText"> 
+								            <% 
+                 user = (User) session.getAttribute("user");
+                if (user != null) {
+                    out.print(user.getDescription());
+                } else {
+                    out.print("구클님, 안녕하세요!");
+                }
+            %>
+				 </span>
 			</div>
 
 			<div class="profileLogout" onclick="logout()">로그아웃</div>
 			<!-- content -->
 		</div>
 
-		<div class="ProfileTileWrapper">
-			<div class="ProfileTile">
-				<img class="profileTileIcon"
-					src="../../resources/images/group_icon.png" alt="group" />
-				<div class="profileTileText">내가 속한 단체</div>
-			</div>
-			<div class="ProfileTile">
-				<img class="profileTileIcon2"
-					src="../../resources/images/like_icon.png" alt="group" />
-				<div class="profileTileText">좋아요한 게시물</div>
-			</div>
-			<div class="ProfileTile">
-				<img class="profileTileIcon2"
-					src="../../resources/images/post_icon.png" alt="group" />
-				<div class="profileTileText">작성한 게시물</div>
-			</div>
-			<div class="ProfileTile">
-				<img class="profileTileIcon2"
-					src="../../resources/images/setting_icon.png" alt="group" />
-				<div class="profileTileText">정보 수정</div>
-			</div>
-		</div>
-	</div>
+<div class="ProfileTileWrapper">
+    <div class="ProfileTile" onclick="navigateToPage('user/group')">
+        <img class="profileTileIcon" src="../../resources/images/group_icon.png" alt="group" />
+        <div class="profileTileText">내가 속한 단체</div>
+    </div>
+    <div class="ProfileTile" onclick="navigateToPage('user/like')">
+        <img class="profileTileIcon2" src="../../resources/images/like_icon.png" alt="like" />
+        <div class="profileTileText">좋아요한 게시물</div>
+    </div>
+    <div class="ProfileTile" onclick="navigateToPage('user/post')">
+        <img class="profileTileIcon2" src="../../resources/images/post_icon.png" alt="post" />
+        <div class="profileTileText">작성한 게시물</div>
+    </div>
+    <div class="ProfileTile" onclick="navigateToPage('userEdit.jsp')">
+        <img class="profileTileIcon2" src="../../resources/images/setting_icon.png" alt="settings" />
+        <div class="profileTileText">정보 수정</div>
+    </div>
+</div>
 
 
 	<!-- profile wrapper -->
@@ -94,7 +107,7 @@
 		function logout() {
 			var form = document.createElement('form');
 			form.method = 'POST';
-			form.action = '${pageContext.request.contextPath}/authLogout';
+			form.action = '${pageContext.request.contextPath}/logoutServlet';
 			document.body.appendChild(form);
 			form.submit();
 		}
@@ -105,6 +118,16 @@ if (session == null || session.getAttribute("user") == null) { // Check if "user
 		window.location.href = "../../index.jsp"; // Redirect to index.jsp
 	<%}%>
 		};
+		
+		// 이동 
+	
+	    function navigateToPage(path) {
+	        window.location.href = path;
+	    }
+	
+
+		
+		
 	</script>
 </body>
 </html>

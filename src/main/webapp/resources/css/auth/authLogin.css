@@ -22,6 +22,7 @@
     padding-top: 10rem;
     margin-bottom: 10rem;
     color: #333;
+   nimation: fadeIn 2s ease-in-out infinite;
 }
 .login_logo{
 	display: flex;
