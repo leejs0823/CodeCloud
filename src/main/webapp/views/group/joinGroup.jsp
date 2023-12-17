@@ -51,7 +51,6 @@
     		}
     	}
     	function redirectToLoginPage(){
-    		//현재 페이지 url을 인코딩하여 로그인 페이지로 전달
 
     		alert("로그인을 먼저 진행해주세요!");
     		

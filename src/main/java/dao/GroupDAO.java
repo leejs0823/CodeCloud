@@ -28,29 +28,26 @@ public class GroupDAO {
                 return findgroup;
         	}
         }catch (SQLException e) {
-            // 예외 처리
             e.printStackTrace();
         }
         return null;
 	}
 
 	public void updateGroup(Group group) {
-        // 그룹을 업데이트하는 메서드
        
 		String query = "UPDATE codecloud.Groups SET groupName = ?, description = ? WHERE groupId = ?";
         try(Connection conn = DatabaseConnection.getConnection();
         		PreparedStatement stmt = conn.prepareStatement(query);) {
 
-            // 쿼리 매개변수 설정
         	
             stmt.setString(1, (String)group.getGroupName());
             stmt.setString(2, (String)group.getDescription());
             stmt.setLong(3, (Long)group.getGroupId());
-            // 쿼리 실행
+
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            // 예외 처리
+
             e.printStackTrace();
         } 
     }
