@@ -1,9 +1,6 @@
 package dao;
 
 import model.Post;
-import model.PreparedStatement;
-import model.SQLException;
-import model.Connection;
 import model.Group;
 import java.sql.*;
 import java.util.ArrayList;
@@ -223,6 +220,62 @@ public class PostDAO {
             throw e;
         }
     }
+    
+    // toggle like 
+    public boolean toggleLike(int postId, long userId) throws SQLException {
+        // 사용자가 이미 좋아요를 눌렀는지 확인
+        String checkSql = "SELECT EXISTS (SELECT 1 FROM UserLikes WHERE userId = ? AND postId = ?)";
+        boolean isLiked;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+            checkStmt.setLong(1, userId);
+            checkStmt.setLong(2, postId);
+            
+            ResultSet rs = checkStmt.executeQuery();
+            rs.next();
+            isLiked = rs.getBoolean(1);
+        }
+
+        String sql;
+        if (isLiked) {
+            // 이미 좋아요를 눌렀다면 좋아요 취소
+            sql = "DELETE FROM Likes WHERE userId = ? AND postId = ?";
+        } else {
+            // 좋아요를 누르지 않았다면 추가
+            sql = "INSERT INTO Likes (userId, postId) VALUES (?, ?)";
+        }
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, userId);
+            stmt.setLong(2, postId);
+            stmt.executeUpdate();
+        }
+
+        return !isLiked;
+    }
+
+    public int getLikeCnt(int postId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM Likes WHERE postId = ?";
+        int likeCount = 0;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, postId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                likeCount = rs.getInt(1);
+            }
+        }
+
+        return likeCount;
+    }
+
+    
+    
+    
 
 
 }
