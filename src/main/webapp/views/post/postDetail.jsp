@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.Post" %>
-<%@ page import= "dao.PostDAO" %>
+<%@ page import="dao.PostDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +12,22 @@
 </head>
 <body>
     <%@ include file="../layout/layoutNavbar.jsp" %>
-	<%
-		int postId = 0;
-		String postIdParam = request.getParameter("postId");
-		if (postIdParam != null && !postIdParam.isEmpty()) {
-		    postId = Integer.parseInt(postIdParam);
-		}
-	
-	    PostDAO postDAO = new PostDAO();
-	    Post post = postDAO.getPostById(postId);
-	%>
+    <%
+        int postId = 0;
+        String postIdParam = request.getParameter("postId");
+        if (postIdParam != null && !postIdParam.isEmpty()) {
+            postId = Integer.parseInt(postIdParam);
+        }
+        
+        PostDAO postDAO = new PostDAO();
+        Post post = postDAO.getPostById(postId);
+        
+        if (post == null) {
+            // 게시물이 없으면 404 페이지로 리디렉트
+            response.sendRedirect("${pageContext.request.contextPath}/path-to-404-page.jsp");
+            return;
+        }
+    %>
     <div class="postdetailWrapper">
         <h1><%= post.getTitle() %></h1>
         <p><%= post.getContent() %></p>
