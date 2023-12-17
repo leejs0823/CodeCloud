@@ -90,22 +90,63 @@ public class PostDAO {
         return groups;
     }
     
-    // 사용자의 그룹 이름을 가져오는 메서드
-    public String findGroupNameByGroupId(Long groupId) throws SQLException {
+    // POST ID로 Group Name가져오기 
+    public String findGroupNameByPostId(int postId) throws SQLException {
+
         String groupName = null;
-        String sql = "SELECT groupName FROM `Groups` WHERE groupId = ?";
-        
+        int groupId = 0; // INT로 변경
+
+        // postId에서 groupId를 가져오는 쿼리문 추가
+        String groupIdQuery = "SELECT group_id FROM Posts WHERE id = ?";
+        String groupNameQuery = "SELECT groupName FROM `Groups` WHERE groupId = ?";
+
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement groupIdStmt = conn.prepareStatement(groupIdQuery);
+             PreparedStatement groupNameStmt = conn.prepareStatement(groupNameQuery)) {
+
+            // postId로 groupId를 가져오기 위한 쿼리 실행
+            groupIdStmt.setInt(1, postId); // INT로 변경
+            ResultSet groupIdResultSet = groupIdStmt.executeQuery();
             
-            stmt.setLong(1, groupId);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                groupName = rs.getString("groupName");
+            if (groupIdResultSet.next()) {
+                groupId = groupIdResultSet.getInt("group_id"); // INT로 변경
             }
+            
+            // 중간 진행 상황 출력
+            System.out.println("🤖 진행중 - groupId 가져오기 완료");
+
+            if (groupId != 0) { // 0과 비교하여 NULL 검사(INT 형식에서는 NULL 대신 0 사용)
+                // groupId로 groupName을 가져오기 위한 쿼리 실행
+                groupNameStmt.setInt(1, groupId); // INT로 변경
+                ResultSet groupNameResultSet = groupNameStmt.executeQuery();
+
+                if (groupNameResultSet.next()) {
+                    groupName = groupNameResultSet.getString("groupName");
+                } else {
+                    // groupName을 찾지 못한 경우
+                    System.err.println("❌ groupName을 찾지 못했습니다.");
+                }
+            } else {
+                // groupId를 찾지 못한 경우
+                System.err.println("❌ groupId를 찾지 못했습니다.");
+            }
+            
+            // 중간 진행 상황 출력
+            System.out.println("🤖 진행중 - groupName 가져오기 완료");
+        } catch (SQLException e) {
+            // 데이터베이스 관련 예외 처리
+            System.err.println("❌ 데이터베이스 오류: " + e.getMessage());
+            throw e; // 예외를 다시 던져서 상위 호출자에게 처리를 위임
         }
+
         return groupName;
     }
+
+
+    
+ //
+    
+    
     
     // 사용자가 속한 그룹의 ID를 가져오는 메서드
     public Long getGroupIdByUserId(Long userId) throws SQLException {
