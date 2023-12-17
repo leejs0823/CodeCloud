@@ -20,7 +20,10 @@
     <servlet-name>AuthSignUpServlet</servlet-name>
     <url-pattern>/auth/*</url-pattern>
   </servlet-mapping>
-  
+  	<error-page>
+    	<error-code> 404 </error-code>
+        <location> /views/notFound.jsp</location>
+    </error-page>
 
   <!-- PostServlet 매핑 -->
   <servlet>
