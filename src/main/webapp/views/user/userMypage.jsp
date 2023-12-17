@@ -98,7 +98,7 @@
 
 
 
-
+</div>
 	<%--푸터--%>
 	<%@ include file="../../views/layout/layoutFooter.jsp"%>
 	<%--js--%>

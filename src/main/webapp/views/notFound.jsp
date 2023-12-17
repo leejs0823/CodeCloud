@@ -23,10 +23,5 @@
 		    	Code Cloud에 없는 페이지에요!
 		     </h1>
 	    </div>
-	   
-	    
-
-	    <%--푸터--%>
-	    <%@ include file="../views/layout/layoutFooter.jsp" %>
 </body>
 </html>
