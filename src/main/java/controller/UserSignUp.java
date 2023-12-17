@@ -28,7 +28,7 @@ public class UserSignUp extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         if (userDAO.emailExists(email)) {
             System.out.println("❌ 이메일 중복: " + email);
-            response.sendRedirect("views/Auth/authIndex.jsp?error=true");
+            response.sendRedirect("views/Auth/authIndex.jsp?repeat=true");
             return;
         }
 
@@ -38,7 +38,7 @@ public class UserSignUp extends HttpServlet {
             response.sendRedirect("views/Auth/authIndex.jsp?signup=true");
         } else {
             System.out.println("❌ 회원가입 실패: " + email);
-            response.sendRedirect("views/Auth/authIndex.jsp?error=true");
+            response.sendRedirect("views/Auth/authIndex.jsp?aceept=true");
         }
     }
 }
