@@ -9,7 +9,13 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/main/main.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/layout/layout.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/auth/auth.css">
+    <!-- modal CSS -->
+    <link rel="stylesheet" type="text/css" href="../../resources/css/modal.css">
 </head>
+ <style>
+		
+        /* 추가적인 스타일링 */
+    </style>
 <body>
     <%--헤더--%>
     <%@ include file="../../views/layout/layoutNavbar.jsp" %>
@@ -19,34 +25,47 @@
 
     <%--푸터--%>
     <%@ include file="../../views/layout/layoutFooter.jsp" %>
-    <%
-   	// url Params 파라미터 가지고 와서 error turel이면 에러 창 띄우기  
-   	// signup true이면 회원가입 완료 창 띄우
-    %>
+    
+        <!-- 모달 추가 -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <p class="modal-text">여기에 메시지가 표시됩니다.</p>
+            <div class="modal-button-container">
+                <button class="modal-button" onclick="closeModal()">확인</button>
+            </div>
+        </div>
+    </div>
 
-
-
-<script>
-    window.onload = function() {
-        
-        var urlParams = new URLSearchParams(window.location.search);
-
-        
-        if (urlParams.has('error')) {
-            alert('로그인 실패');
+   <script>
+   // 모달 열기 
+        function showModal(message) {
+            document.querySelector('.modal-content p').textContent = message;
+            document.getElementById('modal').style.display = 'flex';
         }
-        
-        if(urlParams.has('repeat')){
-        	alert("회원가입 실패 : 중복된 계정입니다."")
+		// 모달 닫기 
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
         }
 
-        
-        if (urlParams.has('signup')) {
-            alert("회원가입 완료! 로그인을 시도해주세요.");
-        }
-    };
-</script>
-    <%--js--%>
-    <script src="./resources/js/auth/authLogin.js"></script>
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.has('error')) {
+                showModal('로그인 실패');
+            }
+
+            if(urlParams.has('repeat')){
+                showModal("회원가입 실패 : 중복된 계정입니다.");
+            }
+
+            if(urlParams.has('aceept')){
+                showModal("회원가입 실패 : 중복된 계정입니다.");
+            }
+            if (urlParams.has('signup')) {
+                showModal("회원가입 완료! 로그인을 시도해주세요.");
+            }
+        };
+    </script>
+    
 </body>
 </html>

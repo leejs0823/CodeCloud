@@ -55,7 +55,7 @@ public class PostDAO {
     // 사용자의 닉네임을 가져오는 메서드
     public String findNicknameByUserId(Long userId) throws SQLException {
         String nickname = null;
-        String sql = "SELECT nickname FROM `Users` WHERE id = ?";
+        String sql = "SELECT nickname FROM Users WHERE id = ?";
         
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
