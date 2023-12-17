@@ -168,52 +168,107 @@
 		</div>
 		<div class = "member_content">
 			<h2>MEMBER</h2>
+			<div class = "searchbar">
 			<form>
 				<input type = "text" class = "search_input" name = "keyword" placeholder = "이름 검색"/>
+				<input type = "submit" class = "search_button" value = "검색"/>
 			</form>
+			</div>
 			<div class = "member_list">
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+						<div class = "admin">[관리자]</div>
+					</div>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<button type="button" class = "delete_button" onclick="showConfirmation()">삭제</button>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 				<div class = "member">
-					<p>이름</p>
-					<button type="button" class = "delete_button">삭제</button>
+					<div class = "member_name">
+						<p>이름</p>
+					<div class = "general">[일반]</div>
+					</div>
+					<form>
+						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
+					</form>
 				</div>
 			</div>
-			<button type="button" class = "member_button">권한 설정</button>
+
+			<div class = "pagination">
+			<%-- 구현 예정 --%>
+			</div>
+			<div class="group_invite">
+				<p>링크를 통해 새 멤버를 추가하세요!</p>
+				<p class="copy_link" onClick = "copyLink()">초대 링크 복사하기</p>
+			</div>
 		</div>
 		</div>
 	</main>

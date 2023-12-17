@@ -47,6 +47,6 @@
     };
 </script>
     <%--js--%>
-    <script src="./resources/common/main_script.js"></script>
+    <script src="./resources/js/auth/authLogin.js"></script>
 </body>
 </html>
