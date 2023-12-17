@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDateTime;
 
-//그룹 멤버십 클래스는 그룹 내의 사용자 멤버십에 대한 정보를 담고 있
+//그룹 멤버십 클래스는 그룹 내의 사용자 멤버십에 대한 정보를 담고 있음
 public class GroupMembership {
  private Long id; // 멤버십 ID
  private Long userId; // 사용자 ID

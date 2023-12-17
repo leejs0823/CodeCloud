@@ -17,7 +17,7 @@ public class PostDetailServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // postId 파라미터를 가져옵니다.
+        // postId 파라미터를 가져옴
         String postIdParam = request.getParameter("postId");
         
         // postId가 null이면 오류 처리
@@ -29,7 +29,7 @@ public class PostDetailServlet extends HttpServlet {
         try {
             int postId = Integer.parseInt(postIdParam);
 
-            // PostDAO를 사용하여 postId에 해당하는 게시물을 가져옵니다.
+            // PostDAO를 사용하여 postId에 해당하는 게시물을 가져옴
             PostDAO postDAO = new PostDAO();
             Post post = postDAO.getPostById(postId);
 
@@ -38,7 +38,7 @@ public class PostDetailServlet extends HttpServlet {
                 request.setAttribute("post", post);
                 
                 // 여기서 게시물 목록을 불러옵니다.
-                List<Post> allPosts = postDAO.getAllPosts(); // PostDAO에서 getAllPosts 메서드를 작성해야 합니다.
+                List<Post> allPosts = postDAO.getAllPosts();
                 request.setAttribute("allPosts", allPosts);
                 
                 request.getRequestDispatcher("/CodeCloud/views/post/postDetail.jsp").forward(request, response);

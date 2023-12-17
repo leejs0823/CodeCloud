@@ -29,7 +29,7 @@ public class PostDAO {
         return postId;
     }
     
-    // 특정 ID의 게시물을 찾는 메서드 - 뭐임 이거 왜 안 돼;;
+    // 특정 ID의 게시물을 찾는 메서드
     public Post getPostById(int postId) throws SQLException {
         String sql = "SELECT * FROM Posts WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -142,7 +142,7 @@ public class PostDAO {
                 post.setTitle(rs.getString("title"));
                 post.setContent(rs.getString("content"));
                 post.setCreatedAt(rs.getTimestamp("createdAt").toLocalDateTime());
-                post.setUpdatedAt(rs.getTimestamp("updatedAt").toLocalDateTime());
+                post.setUpdatedAt(rs.getTimestamp("updatedt").toLocalDateTime());
                 allPosts.add(post);
             }
         }

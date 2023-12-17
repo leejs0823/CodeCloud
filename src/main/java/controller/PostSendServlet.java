@@ -51,15 +51,15 @@ public class PostSendServlet extends HttpServlet {
         try {
             Long postId = postDAO.savePost(newPost);
             if (postId != null) {
-                // 성공적으로 게시물을 저장했다면 게시물 상세 페이지로 리다이렉트합니다.
+                // 성공적으로 게시물을 저장했다면 게시물 상세 페이지로 리다이렉트
                 response.sendRedirect("/CodeCloud/views/post/postDetail.jsp?postId=" + postId);
             } else {
-                // 게시물 저장에 실패했다면 오류 메시지를 사용자에게 보여주거나 로깅합니다.
+                // 게시물 저장에 실패했다면 오류 메시지를 사용자에게 보여주거나 로깅
                 throw new SQLException("게시물 생성 실패");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // 데이터베이스 오류가 발생했다면 내부 서버 오류로 응답합니다.
+            // 데이터베이스 오류가 발생했다면 내부 서버 오류로 응답
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database error occurred while creating the post");
         }
     }

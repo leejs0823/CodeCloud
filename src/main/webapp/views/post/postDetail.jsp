@@ -26,7 +26,6 @@
         <p><%= post.getContent() %></p>
         <p>작성자: <%= post.getWriter() %></p>
         <p>작성일시: <%= post.getCreatedAt() %></p>
-        <!-- 다른 게시물 정보들을 필요에 따라 추가하세요 -->
     </div>
 </body>
 </html>
