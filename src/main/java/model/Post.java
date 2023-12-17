@@ -5,7 +5,7 @@ import java.util.List;
 
 // 게시글(Post) 정보를 나타내는 클래스
 public class Post {
-    private Long id; // 게시글 ID
+    private int id; // 게시글 ID
     private Long writer; // 작성자 ID
     private Long groupId; // 그룹 ID
     private String title; // 게시글 제목
@@ -23,7 +23,7 @@ public class Post {
     }
 
     // 매개변수가 있는 생성자
-    public Post(Long id, Long writer, Long groupId, String title, String content, 
+    public Post(int id, Long writer, Long groupId, String title, String content, 
                 LocalDateTime createdAt, LocalDateTime updatedAt, 
                 int viewCnt, int likeCnt, int commentCnt, List<Comment> comments) {
         this.id = id;
@@ -40,11 +40,11 @@ public class Post {
     }
 
 
-    public Long getId() {
+    public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

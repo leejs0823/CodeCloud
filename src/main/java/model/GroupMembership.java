@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 //그룹 멤버십 클래스는 그룹 내의 사용자 멤버십에 대한 정보를 담고 있
 public class GroupMembership {
- private Long membershipId; // 멤버십 ID
+ private Long id; // 멤버십 ID
  private Long userId; // 사용자 ID
  private Long groupId; // 그룹 ID
  private Role role; // 멤버십 역할 (멤버 혹은 리더)
@@ -21,7 +21,7 @@ public class GroupMembership {
 
  // 매개변수가 있는 생성자
  public GroupMembership(Long membershipId, Long userId, Long groupId, Role role, LocalDateTime joinDate) {
-     this.membershipId = membershipId;
+     this.id = membershipId;
      this.userId = userId;
      this.groupId = groupId;
      this.role = role;
@@ -30,12 +30,12 @@ public class GroupMembership {
 
  // membershipId 필드의 getter 메소드
  public Long getMembershipId() {
-     return membershipId;
+     return id;
  }
 
  // membershipId 필드의 setter 메소드
  public void setMembershipId(Long membershipId) {
-     this.membershipId = membershipId;
+     this.id = membershipId;
  }
 
  // userId 필드의 getter 메소드
@@ -82,7 +82,7 @@ public class GroupMembership {
  @Override
  public String toString() {
      return "GroupMembership{" +
-             "membershipId=" + membershipId +
+             "membershipId=" + id +
              ", userId=" + userId +
              ", groupId=" + groupId +
              ", role=" + role +

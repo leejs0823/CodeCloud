@@ -1,33 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="model.Post" %>
+<%@ page import= "dao.PostDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-	<title>Code Cloud</title>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout/layout.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/post/postDetail.css">
+    <title>게시물 상세 페이지</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout/layout.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/post/postDetail.css">
 </head>
 <body>
-    <%--헤더--%>
-    <%@ include file="../layout/layoutNavbar.jsp" %>
+<%
+	int postId = 0;
+	String postIdParam = request.getParameter("postId");
+	if (postIdParam != null && !postIdParam.isEmpty()) {
+	    postId = Integer.parseInt(postIdParam);
+	}
 
-	<div class="postWrapper">
-		<div class="postForm">
-	      <h1> 디테일 곧 할 거라우 </h1>
-	     <form action="${pageContext.request.contextPath}/registrationsuccess" method="post">
-		         <div class="postInputWrapper">
-							<input class="titleInput" type="text" placeholder="제목" name="groupName" >
-							<textarea class="contentInput" name="description" placeholder="내용을 입력해주세요" oninput="calcTextareaHeight(this)" ></textarea>
-						<button class="postSendButton" type="submit">게시하기</button>
-		         </div>
-		  </form>
-	      </div>
-	</div>
-    <%--푸터--%>
-    <%@ include file="../layout/layoutFooter.jsp" %>
-    <%--js--%>
-    <script src="${pageContext.request.contextPath}/resources/js/main_script.js"></script>
+    PostDAO postDAO = new PostDAO();
+    Post post = postDAO.getPostById(postId);
+%>
+    <div class="post-details-container">
+        <h1><%= post.getTitle() %></h1>
+        <p><%= post.getContent() %></p>
+        <p>작성자: <%= post.getWriter() %></p>
+        <p>작성일시: <%= post.getCreatedAt() %></p>
+        <!-- 다른 게시물 정보들을 필요에 따라 추가하세요 -->
+    </div>
 </body>
 </html>
