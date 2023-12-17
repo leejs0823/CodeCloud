@@ -15,11 +15,15 @@
     <%
         int postId = 0;
         String postIdParam = request.getParameter("postId");
-        if (postIdParam != null && !postIdParam.isEmpty()) {
-            postId = Integer.parseInt(postIdParam);
-        }
         
         PostDAO postDAO = new PostDAO();
+        
+        if (postIdParam != null && !postIdParam.isEmpty()) {
+            postId = Integer.parseInt(postIdParam);
+            postDAO.addViewCnt(postId);
+        }
+        
+        
         
         Post post = postDAO.getPostById(postId);
         String groupName = postDAO.findGroupNameByPostId(postId);
@@ -35,7 +39,10 @@
     <div class="detailPageWrapper">
 	    <div class="DetailPageType">
 	   <!-- 서버에서 단체 이름 불러오기  -->
-	    ${groupName}
+	   <p style="font-size:1.5rem">
+	   <%= groupName %>
+	   </p>
+	    
 	    </div>
 	    <div class="DetailTitleWrapper">
 		    <div class="DetailTitle"> <%= post.getTitle() %></div>
@@ -51,12 +58,13 @@
 	    </div>
 	    <div class="DetailContentWrapper">
 	    	<p class="DetailContent"><%= post.getContent() %></p>
+	    	<%= post %>
 	    </div>
 	    
 	    <hr class="DetailDiviner"/>
 	    <div class="LikeViewWrapper">
-		   <p class="DetailViewText"> 조회수 :</p>
-		   <p class="DetailViewText"> 좋아요 :</p>  
+		   <p class="DetailViewText"> 조회수 : <%= post.getViewCnt() %></p>
+		   <p class="DetailViewText"> 좋아요 : <%= post.getLikeCnt() %></p>  
 	    </div>
         <div class="DetailCommentHeader">답변 댓글수</div>
         <!-- 입력창  -->
@@ -88,8 +96,7 @@
     
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
-    <%--js--%>
-    <script src="${pageContext.request.contextPath}/resources/js/main_script.js"></script>
+   
         <script>
         function submitComment() {
             var content = document.getElementById('commentContent').value;
@@ -99,6 +106,12 @@
             }
             // Add AJAX call to submit the comment
         }
+        
+        
+        window.onload = function() {
+        console.log("aaa");
+        
+        };
     </script>
 </body>
 </html>

@@ -104,6 +104,7 @@ public class Post {
 		this.viewCnt = viewCnt;
 	}
 
+
 	public int getLikeCnt() {
 		return likeCnt;
 	}
@@ -111,6 +112,7 @@ public class Post {
 	public void setLikeCnt(int likeCnt) {
 		this.likeCnt = likeCnt;
 	}
+	
 	
 	
 

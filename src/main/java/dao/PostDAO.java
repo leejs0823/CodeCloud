@@ -1,6 +1,9 @@
 package dao;
 
 import model.Post;
+import model.PreparedStatement;
+import model.SQLException;
+import model.Connection;
 import model.Group;
 import java.sql.*;
 import java.util.ArrayList;
@@ -45,6 +48,15 @@ public class PostDAO {
                 post.setContent(rs.getString("content"));
                 post.setCreatedAt(rs.getTimestamp("createdAt").toLocalDateTime());
                 post.setUpdatedAt(rs.getTimestamp("updatedAt").toLocalDateTime());
+                // viewCnt
+                post.setViewCnt(rs.getInt("viewCnt"));
+                post.setLikeCnt(rs.getInt("likeCnt"));
+//                post.setComments(rs.getInt("likeCnt"));
+                
+                // likeCnt
+                
+                // commentCnt
+                
                 return post;
             }
         }
@@ -133,6 +145,8 @@ public class PostDAO {
             
             // 중간 진행 상황 출력
             System.out.println("🤖 진행중 - groupName 가져오기 완료");
+            System.out.println(groupName);
+            System.out.println("🤖 진행중 - groupName은 위 ");
         } catch (SQLException e) {
             // 데이터베이스 관련 예외 처리
             System.err.println("❌ 데이터베이스 오류: " + e.getMessage());
@@ -189,5 +203,26 @@ public class PostDAO {
         }
         return allPosts;
     }
+    
+	// 포스트 조회수 증가 메서드
+    public void addViewCnt(int postId) throws SQLException {
+        String sql = "UPDATE Posts SET viewCnt = viewCnt + 1 WHERE id = ?";
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, postId);
+            int affectedRows = stmt.executeUpdate();
+            
+            if (affectedRows > 0) {
+                System.out.println("👀 조회수가 1 증가했습니다.");
+            } else {
+                System.err.println("❌ 조회수 증가에 실패했습니다.");
+            }
+        } catch (SQLException e) {
+            System.err.println("❌ 데이터베이스 오류: " + e.getMessage());
+            throw e;
+        }
+    }
+
 
 }
