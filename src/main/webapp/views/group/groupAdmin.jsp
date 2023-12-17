@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.Group" %>
+<%@ page import="model.GroupMembership" %>
 <%@ page import="dao.GroupDAO" %>
+<%@ page import="model.User" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +22,10 @@
 	GroupDAO groupDAO = new GroupDAO();
 	int id = 1;
 	Long groupId = Long.valueOf(id);
-	Group group = (Group)groupDAO.getGroupById(groupId);
 	
+	Group group = (Group)groupDAO.getGroupById(groupId);
+	Long adminId = groupDAO.getLeaderId(groupId);
+	String groupAdminName = groupDAO.getUserById(adminId);
 	%>
 	<main>
 		<div class="background_photo"></div>
@@ -185,89 +190,35 @@
 			<div class = "member_list">
 				<div class = "member">
 					<div class = "member_name">
-						<p>이름</p>
+						<p><%=groupAdminName %></p>
 						<div class = "admin">[관리자]</div>
 					</div>
 				</div>
+				
+				<%
+				Long[] userIds = groupDAO.getUsersByGroupId(groupId);
+				String userName = null;
+
+				ArrayList<Long> userIdList = new ArrayList<>();
+				for(Long userId : userIds){
+					if(userId != null){
+						userIdList.add(userId);
+					}
+				}
+				for(Long userId : userIdList){
+					userName = groupDAO.getUserById(userId);
+				%>
 				<div class = "member">
 					<div class = "member_name">
-						<p>이름</p>
+						<p><%=userName %></p>
 					<div class = "general">[일반]</div>
 					</div>
 					<button type="button" class = "delete_button" onclick="showConfirmation()">삭제</button>
 				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
-				<div class = "member">
-					<div class = "member_name">
-						<p>이름</p>
-					<div class = "general">[일반]</div>
-					</div>
-					<form>
-						<input type="button" value = "삭제" class = "delete_button" onclick="showConfirmation()"/>
-					</form>
-				</div>
+				<%
+				}
+				%> 
+				
 			</div>
 
 			<div class = "pagination">
