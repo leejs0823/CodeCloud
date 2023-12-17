@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="model.Group" %>
+<%@ page import="dao.GroupDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +15,21 @@
     <%@ include file="../layout/layoutNavbar.jsp" %>
 	
 	<%-- 그룹관리자 페이지 --%>
+	<% 
+	GroupDAO groupDAO = new GroupDAO();
+	int id = 1;
+	Long groupId = Long.valueOf(id);
+	Group group = (Group)groupDAO.getGroupById(groupId);
+	
+	%>
 	<main>
 		<div class="background_photo"></div>
 		<div class="profile">
 			<div class="profile_edit">	
 				<div class="profile_photo"></div>
-				<h1 class="group_name">단체명 </h1>
+				<h1 class="group_name"><%=group.getGroupName() %> </h1>
 			</div>
-			<p class = "group_description">단체 소개 글 나오는 부분입니다.  안녕하세요 코드클라우드입니다. 단체만의 맞춤형 블로그를 제공하는 플랫폼입니다. 파이팅!! 100자 정도 적으면 이정도 들어가지 않을까요?</p>
+			<p class = "group_description"><%=group.getDescription() %></p>
 			<button type="button" class = "edit_button" onClick= "location.href = '/CodeCloud/views/group/groupAdminEdit.jsp'">프로필 편집</button>
 		</div>
 		<div class="content">

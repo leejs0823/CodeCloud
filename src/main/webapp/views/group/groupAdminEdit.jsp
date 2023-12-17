@@ -23,7 +23,7 @@
 			<div class="profile_photo"></div>
 			<a href="#">프로필 사진 변경</a>
 		</div>
-		<form>
+		<form action="${pageContext.request.contextPath}/groupEditServlet" method="POST">
 		<div class = "description">
 			<div class = "group_name_edit">
 				<h2 class = "group_name">단체명</h2>
