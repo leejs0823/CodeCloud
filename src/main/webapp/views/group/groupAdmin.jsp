@@ -8,6 +8,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Post" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +58,6 @@
 				<div class = "category">카테고리 2</div>
 			</div>
 			<div class="frame">
-			
 			<%
 			
 			for(Post post : allGroupPosts){
@@ -64,11 +66,24 @@
 					String content = post.getContent();
 					String title = post.getTitle();
 					String writer = groupDAO.getUserById(post.getWriter());
+					
+					
 					%>
 					<div class="post" >
 						<div class="thumbnail"></div>
 						<p class="post_title"><%=title %></p>
-					<p class="detail"><%=content %></p>
+						
+						<p class="detail">
+						<c:set var="content" value="<%=content%>"/>
+						<c:choose>
+							<c:when test="${fn:length(content)>20}">
+								${fn:substring(content, 0, 19)}...
+							</c:when>
+							<c:otherwise>
+								${content}
+							</c:otherwise>
+						</c:choose>
+						</p>
 					<div class="writer_and_like">
 						<div class="writer">
 							<p><%=writer %> </p>
@@ -124,9 +139,7 @@
 				<%
 				}
 				%> 
-				
 			</div>
-
 			<div class = "pagination">
 			<%-- 구현 예정 --%>
 			</div>

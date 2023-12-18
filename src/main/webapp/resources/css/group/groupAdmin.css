@@ -229,7 +229,7 @@ main .post_content .frame{
 }
 
 main .post_content .frame .post{
-	margin: 1.5rem;
+	margin: 1rem;
 	display: flex;
 	width: 25rem;
 	height: 25rem;
@@ -237,6 +237,7 @@ main .post_content .frame .post{
 	border-radius: 40px;
 	border: 1px solid #D9D9D9;
 	box-shadow: 1px 1px 10px 0px #D9D9D9;
+	cursor: pointer;
 }
 
 main .post_content .frame .post .thumbnail{
