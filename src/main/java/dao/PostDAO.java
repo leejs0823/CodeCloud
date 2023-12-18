@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostDAO {
-    // 게시물을 데이터베이스에 저장하는 메서드 - 저장 잘 됨
+    // 게시물을 데이터베이스에 저장하는 메서드
     public Long savePost(Post post) throws SQLException {
         String sql = "INSERT INTO Posts (writer, group_id, title, content) VALUES (?, ?, ?, ?)";
         Long postId = null;
@@ -48,7 +48,7 @@ public class PostDAO {
                 // viewCnt
                 post.setViewCnt(rs.getInt("viewCnt"));
                 post.setLikeCnt(rs.getInt("likeCnt"));
-//                post.setComments(rs.getInt("likeCnt"));
+//              post.setComments(rs.getInt("likeCnt"));
                 
                 // likeCnt
                 
@@ -99,7 +99,7 @@ public class PostDAO {
         return groups;
     }
     
-    // POST ID로 Group Name가져오기 
+    // POST ID로 Group Name 가져오기 
     public String findGroupNameByPostId(int postId) throws SQLException {
 
         String groupName = null;
@@ -203,15 +203,28 @@ public class PostDAO {
     
 	// 포스트 조회수 증가 메서드
     public void addViewCnt(int postId) throws SQLException {
-        String sql = "UPDATE Posts SET viewCnt = viewCnt + 1 WHERE id = ?";
+    	String updateSql = "UPDATE Posts SET viewCnt = COALESCE(viewCnt, 0) + 1 WHERE id = ?";
+    	// viewCnt가 null로 설정되어 있어서 null일 때는 값을 즐가 못 시킴. 그래서 쿼리문을 위와 같이 작성함.
+        String selectSql = "SELECT viewCnt FROM Posts WHERE id = ?";
         
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, postId);
-            int affectedRows = stmt.executeUpdate();
+                PreparedStatement updateStmt = conn.prepareStatement(updateSql);
+                PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
+
+            // 조회수 증가
+            updateStmt.setInt(1, postId);
+            int affectedRows = updateStmt.executeUpdate();
             
             if (affectedRows > 0) {
                 System.out.println("👀 조회수가 1 증가했습니다.");
+                
+                // 증가된 조회수 가져오기
+                selectStmt.setInt(1, postId);
+                try (ResultSet rs = selectStmt.executeQuery()) {
+                    if (rs.next()) {
+                        rs.getInt("viewCnt");
+                    }
+                }
             } else {
                 System.err.println("❌ 조회수 증가에 실패했습니다.");
             }
