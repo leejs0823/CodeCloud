@@ -15,7 +15,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/likeServlt")
+@WebServlet("/likeServlet")
 public class LikeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
