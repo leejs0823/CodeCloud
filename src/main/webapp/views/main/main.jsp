@@ -11,7 +11,9 @@
 </head>
 <body>
 	<div id="banner">
-		<img src="/CodeCloud/resources/images/main_banner_image.png">
+	    <a href="${pageContext.request.contextPath}/views/group/groupRegister.jsp">
+	        <img src="/CodeCloud/resources/images/main_banner_image.png" alt="Main Banner">
+	    </a>
 	</div>
 	<main>
 		<div id="bar">
