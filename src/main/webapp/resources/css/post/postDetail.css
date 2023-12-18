@@ -232,3 +232,33 @@ font-size: 1.3rem;
 color : #282828;
 
 }
+
+#imageButtons {
+	padding: 2rem;
+}
+
+.imageUpdateButton {
+    padding: 1rem;
+    text-align: center;
+    background: #4285F4;
+    width: 7rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    border-radius: 2rem;
+    border: none;
+    margin: 5rem 0.5rem 4rem;
+}
+
+.imageDeleteButton {
+    padding: 1rem;
+    text-align: center;
+    background: white;
+    width: 7rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #4285F4;
+    border-radius: 2rem;
+    border: 0.1rem solid #4285F4; /* 버튼 테두리 색상 지정 */
+    margin: 5rem 0.5rem 4rem;
+}
