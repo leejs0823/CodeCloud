@@ -84,10 +84,14 @@
 	    <div class="LikeViewWrapper">
 	    
 		   <p class="DetailViewText"> 조회수 : <%= post.getViewCnt() %></p>
-		<div onClick="toggleLike()">좋아요 버튼</div>
+		   
+		<div class="Like" onclick="toggleLike()">
+        	<img class="LikeButton" src="../../resources/images/likebutton.png" alt="like" style="width: 30%;"  />
+        </div>
 		<p class="DetailViewText"> 좋아요 : <span id="likeCount"><%= post.getLikeCnt() %></span></p>
 
 	    </div>
+	    <%--
         <div class="DetailCommentHeader">답변 댓글수</div>
         <!-- 입력창  -->
         <!-- 유저 로그인에 따라 인풋장 나누기  -->
@@ -115,13 +119,30 @@
     
 
     
-    <!-- 댓글 목록 쭉보여주기  -->
+    <!-- 댓글 목록 쭉보여주기  --> --%>
 
     </div>
     
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
    <script>
+   // 좋아요
+   function toggleLike() {
+       var xhr = new XMLHttpRequest();
+       // 서블릿 URL 확인 및 수정
+       xhr.open("GET", "${pageContext.request.contextPath}/likeServlet?postId=" + <%= postId %>, true);
+       xhr.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+               // 좋아요 수 업데이트
+               document.getElementById("likeCount").innerText = this.responseText;
+           } else {
+               // 오류 처리
+               console.error("서버 오류 발생: 상태 코드 " + this.status);
+           }
+       };
+       xhr.send();
+   }
+   
    function summarizeText() {
 	    // 로딩 창 표시
 	    var loadingOverlay = document.getElementById("loading");
