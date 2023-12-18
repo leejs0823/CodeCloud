@@ -18,13 +18,13 @@
 		</div>
     	<div class="group_profile">
     		<div class="group_photo"></div>
-    		<p class="group_name">단체명</p>
+    		<p class="group_name">CodeCloud</p>
     		<div class="group_total_member">
     			<p>total member : </p>
-    			<p>00명</p>
+    			<p>3명</p>
     		</div>
     		<div class="group_description">
-    			<p>안녕하세요 코드클라우드 입니다! 단체만의 맞춤형 블로그를 만들어드립니다. </p>
+    			<p>안녕하세요 코드클라우드 입니다. 단체만의 블로그를 만들어줍니다. </p>
     		</div>
     		<button class="join_button" onClick="checkSessionAndRedirect()">단체 참여</button>
     	</div>

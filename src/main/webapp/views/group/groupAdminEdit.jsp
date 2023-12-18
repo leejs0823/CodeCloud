@@ -40,8 +40,6 @@
 	
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
-
-    <%--js--%>
     <script src="/CodeCloud/resources/js/group/groupDetail.js"></script>
 </body>
 </html>

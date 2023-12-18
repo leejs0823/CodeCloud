@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.Post" %>
+<%@ page import="dao.PostDAO" %>
+<%@ page import="model.Group" %>
+<%@ page import="model.GroupMembership" %>
+<%@ page import="dao.GroupDAO" %>
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="../../resources/css/layout/layout.css">
 </head>
 <body>
+
 	<div id="banner">
 		<img src="/CodeCloud/resources/images/main_banner_image.png">
 	</div>
@@ -38,6 +47,6 @@
 	</main>
 
     <%--js--%>
-    <script src="../../resources/js/main/mainDetail.js"></script>
+    <script src="/CodeCloud/resources/js/main/mainDetail.js"></script>
 </body>
 </html>
