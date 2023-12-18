@@ -78,12 +78,13 @@
 	    <div id="summary">
 	    
 	    
+	    <hr class="DetailDiviner"/>
 	    </div>
 				    <div id="imageButtons" >
 				    	<button class="imageUpdateButton" onclick="">수정하기</button>
 				        <button class="imageDeleteButton" onclick="">삭제하기</button>
     				</div>
-	    <hr class="DetailDiviner"/>
+	    
 	    <div class="LikeViewWrapper">
 	    
 		   <p class="DetailViewText"> 조회수 : <%= post.getViewCnt() %></p>
