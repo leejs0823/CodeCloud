@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.Post" %>
 <%@ page import="dao.PostDAO" %>
+<%@ page import="dao.GroupDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +34,8 @@
             response.sendRedirect("${pageContext.request.contextPath}/notFound.jsp");
             return;
         }
+        GroupDAO groupDAO = new GroupDAO();
+        String writerName = groupDAO.getUserById(post.getWriter());
     %>
     <div class="detailPageWrapper">
 	    <div class="DetailPageType">
@@ -51,7 +54,7 @@
 	    </div>
 	    
 	    <div class="DetailTitleInfoWrapper">
-		    <p class ="DetailTitleGrayInfo"> 작성자 : <%= post.getWriter() %> </p>
+		    <p class ="DetailTitleGrayInfo"> 작성자 : <%= writerName %> </p>
 		    <p class ="DetailTitleGrayInfo"><%= post.getCreatedAt() %></p>
 	    
 	    </div>

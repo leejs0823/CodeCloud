@@ -194,7 +194,7 @@ public class PostDAO {
                 post.setTitle(rs.getString("title"));
                 post.setContent(rs.getString("content"));
                 post.setCreatedAt(rs.getTimestamp("createdAt").toLocalDateTime());
-                post.setUpdatedAt(rs.getTimestamp("updatedt").toLocalDateTime());
+                post.setUpdatedAt(rs.getTimestamp("updatedAt").toLocalDateTime());
                 allPosts.add(post);
             }
         }
@@ -285,10 +285,26 @@ public class PostDAO {
 
         return likeCount;
     }
-
-    
-    
-    
-
-
+    public ArrayList<Post> getPostsByGroupId(Long groupId)  throws SQLException {
+    	ArrayList<Post> allGroupPosts = new ArrayList<>();
+        String query = "SELECT * FROM Posts WHERE group_id = ?";
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+        	stmt.setLong(1,  groupId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Post post = new Post();
+                post.setId(rs.getInt("id"));
+                post.setWriter(rs.getLong("writer"));
+                post.setGroupId(rs.getLong("group_id"));
+                post.setTitle(rs.getString("title"));
+                post.setContent(rs.getString("content"));
+                post.setCreatedAt(rs.getTimestamp("createdAt").toLocalDateTime());
+                post.setUpdatedAt(rs.getTimestamp("updatedAt").toLocalDateTime());
+                allGroupPosts.add(post);
+            }
+        }
+        return allGroupPosts;
+    }
 }

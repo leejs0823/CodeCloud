@@ -3,7 +3,11 @@
 <%@ page import="model.GroupMembership" %>
 <%@ page import="dao.GroupDAO" %>
 <%@ page import="model.User" %>
+<%@ page import="dao.PostDAO" %>
+
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Post" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +30,11 @@
 	Group group = (Group)groupDAO.getGroupById(groupId);
 	Long adminId = groupDAO.getLeaderId(groupId);
 	String groupAdminName = groupDAO.getUserById(adminId);
+
+	PostDAO postDAO = new PostDAO();
+	List<Post> allGroupPosts = new ArrayList<>();
+	allGroupPosts = postDAO.getPostsByGroupId(groupId);
+	
 	%>
 	<main>
 		<div class="background_photo"></div>
@@ -46,137 +55,34 @@
 				<div class = "category">카테고리 2</div>
 			</div>
 			<div class="frame">
-				<div class="post" >
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁</p>
+			
+			<%
+			
+			for(Post post : allGroupPosts){
+				if(post != null){
+					int likeCnt = post.getLikeCnt();
+					String content = post.getContent();
+					String title = post.getTitle();
+					String writer = groupDAO.getUserById(post.getWriter());
+					%>
+					<div class="post" >
+						<div class="thumbnail"></div>
+						<p class="post_title"><%=title %></p>
+					<p class="detail"><%=content %></p>
 					<div class="writer_and_like">
 						<div class="writer">
-							<p>작성자 </p>
+							<p><%=writer %> </p>
 						</div>
 						<div class="like">
-							<p>0</p>
+							<p><%=likeCnt %></p>
 							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
 						</div>
 					</div>
 				</div>
-				<div class="post">
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-				<div class="post">
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="frame">
-				<div class="post" >
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-				<div class="post">
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-				<div class="post">
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="frame">
-				<div class="post" >
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-				<div class="post">
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-				<div class="post">
-					<div class="thumbnail"></div>
-					<p class="post_title">제목을 입력하세요</p>
-					<p class="detail">어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구궁시렁궁시렁어쩌구저쩌구</p>
-					<div class="writer_and_like">
-						<div class="writer">
-							<p>작성자 </p>
-						</div>
-						<div class="like">
-							<p>0</p>
-							<img alt="heart" src="/CodeCloud/resources/images/icons/like_icon.png">
-						</div>
-					</div>
-				</div>
-			</div>
+				<%
+				}
+			}
+			%>
 
 		</div>
 		<div class = "member_content">

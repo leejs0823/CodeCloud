@@ -23,7 +23,7 @@ main .profile_edit{
 	position: relative;
 	left: 5%;
 	width: 18rem;
-	height: 22rem;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -37,6 +37,7 @@ main .profile_edit .profile_photo{
 	height: 18rem;
 	border-radius: 100%;
 	border: 1px solid #D9D9D9;
+	margin-bottom: 1rem;
 }
 
 main .profile_edit .group_name{
@@ -217,15 +218,21 @@ main .member_content .group_invite .copy_link{
 
 main .post_content .frame{
 	display: flex;
+	width: 100%;
+	height: auto;
+	padding: 1rem 0;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
+	align-content: flex-start;
+	row-gap: 2rem;
+	flex-wrap: wrap;
 }
 
 main .post_content .frame .post{
 	margin: 1.5rem;
 	display: flex;
-	width: 30rem;
-	height: 30rem;
+	width: 25rem;
+	height: 25rem;
 	flex-direction: column;
 	border-radius: 40px;
 	border: 1px solid #D9D9D9;
