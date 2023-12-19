@@ -90,7 +90,9 @@ main .post_content h2, main .member_content h2{
 	font-size: 2rem;
 	padding: 1rem 0;
 }
-
+main .post_content .container{
+	position: relative;
+}
 main .post_content .categories{
 	display: flex;
 	width: auto;
@@ -113,6 +115,9 @@ main .post_content .category{
 	cursor: pointer;
 }
 main .post_content .post_button{
+	position: absolute;
+	right: 0;
+	top: 0;
 	align-items: center;
     padding: 0.7rem;
     text-align: center;
