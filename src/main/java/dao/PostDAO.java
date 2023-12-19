@@ -14,7 +14,7 @@ public class PostDAO {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setLong(1, post.getWriter());
-            stmt.setLong(2, 5L);
+            stmt.setLong(2, post.getGroupId());
             stmt.setString(3, post.getTitle());
             stmt.setString(4, post.getContent());
             int affectedRows = stmt.executeUpdate();

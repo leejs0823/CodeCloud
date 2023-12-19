@@ -2,6 +2,7 @@
 <%@ page import="model.Post" %>
 <%@ page import="dao.PostDAO" %>
 <%@ page import="dao.GroupDAO" %>
+<%@ page import="model.Group" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,18 +24,18 @@
             postId = Integer.parseInt(postIdParam);
             postDAO.addViewCnt(postId);
         }
-        
-        
-        
+    
+        GroupDAO groupDAO = new GroupDAO();
         Post post = postDAO.getPostById(postId);
-        String groupName = postDAO.findGroupNameByPostId(postId);
+        Group group = groupDAO.getGroupById(post.getGroupId());
+        String groupName = group.getGroupName();
         
         if (post == null) {
             // 게시물이 없으면 404 페이지로 리디렉트
             response.sendRedirect("${pageContext.request.contextPath}/notFound.jsp");
             return;
         }
-        GroupDAO groupDAO = new GroupDAO();
+        
         String writerName = groupDAO.getUserById(post.getWriter());
     %>
     <div class="detailPageWrapper">
