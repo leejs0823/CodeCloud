@@ -234,11 +234,12 @@ color : #282828;
 }
 
 #imageButtons {
-	padding: 2rem;
+	height: 0rem;
 }
 
 .imageUpdateButton {
-    padding: 1rem;
+	align-items: center;
+    padding: 0.7rem;
     text-align: center;
     background: #4285F4;
     width: 7rem;
@@ -247,11 +248,12 @@ color : #282828;
     color: white;
     border-radius: 2rem;
     border: none;
-    margin: 5rem 0.5rem 4rem;
+    margin-right: 2rem;
 }
 
 .imageDeleteButton {
-    padding: 1rem;
+	align-items: center;
+    padding: 0.7rem;
     text-align: center;
     background: white;
     width: 7rem;
@@ -260,5 +262,5 @@ color : #282828;
     color: #4285F4;
     border-radius: 2rem;
     border: 0.1rem solid #4285F4; /* 버튼 테두리 색상 지정 */
-    margin: 5rem 0.5rem 4rem;
+    margin: 0 ;
 }

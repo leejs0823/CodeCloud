@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import model.Group;
 import model.GroupMembership;
 import model.User;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class GroupDAO {
@@ -131,6 +133,46 @@ public class GroupDAO {
             e.printStackTrace();
         } 
         return null;
-		
+	}
+	
+	public ArrayList<Group> getAllGroups() throws SQLException{
+		ArrayList<Group> allGroups = new ArrayList<>();
+
+		String query = "SELECT groupId, groupName, description FROM codecloud.Groups";
+		try(Connection conn = DatabaseConnection.getConnection();
+        		PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet rs = stmt.executeQuery();){
+
+            
+			
+            while(rs.next()) {
+            	Group group = new Group();
+            	group.setGroupId(rs.getLong("groupId"));
+            	group.setGroupName(rs.getString("groupName"));
+            	group.setDescription(rs.getString("description"));
+            	allGroups.add(group);
+            }
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+        return allGroups;
+	}
+	
+	public int countGroupUsers(Long groupId) throws SQLException{
+		int count = 0;
+		String query = "SELECT COUNT(*) FROM codecloud.GroupMemberships WHERE groupId = ?";
+		try(Connection conn = DatabaseConnection.getConnection();
+        		PreparedStatement stmt = conn.prepareStatement(query);) {
+
+            stmt.setLong(1, groupId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+            
+        } 
+		return count;
 	}
 }
