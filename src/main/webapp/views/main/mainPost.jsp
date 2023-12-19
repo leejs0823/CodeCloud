@@ -21,13 +21,14 @@
     for(Post post : allPosts){
     	if(post!=null){
     		int likeCnt = post.getLikeCnt();
+    		int postId = post.getId();
 			String content = post.getContent();
 			String title = post.getTitle();
 			Group group = groupDAO.getGroupById(post.getGroupId());
 			String groupName = group.getGroupName();
 			String writer = groupDAO.getUserById(post.getWriter());
 			%>
-		<div class="post" onclick="location.href='/CodeCloud/view/post/post.jsp';" >
+		<div class="post" onclick="location.href='/CodeCloud/view/post/postDetail.jsp?postId='+ <%=postId %>;" >
 			<div class="thumbnail"></div>
 				<p class="post_title"><%=title %></p>
 				<p class="detail">
