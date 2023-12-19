@@ -137,13 +137,14 @@ public class GroupDAO {
 	
 	public ArrayList<Group> getAllGroups() throws SQLException{
 		ArrayList<Group> allGroups = new ArrayList<>();
-		
-		String query = "SELECT * FROM codecloud.Groups'";
+
+		String query = "SELECT groupId, groupName, description FROM codecloud.Groups";
 		try(Connection conn = DatabaseConnection.getConnection();
-        		PreparedStatement stmt = conn.prepareStatement(query);) {
+        		PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet rs = stmt.executeQuery();){
 
-            ResultSet rs = stmt.executeQuery();
-
+            
+			
             while(rs.next()) {
             	Group group = new Group();
             	group.setGroupId(rs.getLong("groupId"));
