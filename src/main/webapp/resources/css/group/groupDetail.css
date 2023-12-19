@@ -112,7 +112,19 @@ main .post_content .category{
 	font-size: 1.2rem;
 	cursor: pointer;
 }
-
+main .post_content .post_button{
+	align-items: center;
+    padding: 0.7rem;
+    text-align: center;
+    background: #4285F4;
+    width: 7rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    border-radius: 2rem;
+    border: none;
+    margin-right: 2rem;
+}
 #category_all{
 	border: 1px solid #78AAFE;
 	background: #78AAFE;
@@ -289,3 +301,4 @@ main .post_content .frame .post .detail{
 	width: 2rem;
 	height: 2rem;
 }
+

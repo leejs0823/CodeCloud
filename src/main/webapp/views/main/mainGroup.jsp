@@ -16,7 +16,8 @@
 			String description = group.getDescription();
 			int totalMember = groupDAO.countGroupUsers(groupId);
 					%>
-    <div class="group">
+    <div class="group" onclick = "location.href='/CodeCloud/view/group/groupDetail.jsp?groupId='+ <%=groupId %>;" >
+ 
         <div class="profile"></div>
         <p class="group_name"><%= groupName %></p>
         <p class="introduction"><%= description %></p>
