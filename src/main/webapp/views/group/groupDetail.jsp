@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <title>CodeCloud</title>
         <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/group/groupAdmin.css">
+        <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/group/groupDetail.css">
         <link rel="stylesheet" type="text/css" href="/CodeCloud/resources/css/layout/layout.css">
 </head>
 <body>
@@ -54,7 +54,7 @@
 		<div class="content">
 		<div class="post_content">
 			<h2>게시물</h2>
-			<div>
+			<div class="container">
 				<div class = "categories">
 					<div class = "category" id = "category_all">전체</div>
 					<div class = "category">카테고리 1</div>
