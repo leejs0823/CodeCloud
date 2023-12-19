@@ -254,9 +254,11 @@ public class PostDAO {
         if (isLiked) {
             // 이미 좋아요를 눌렀다면 좋아요 취소
             sql = "DELETE FROM Likes WHERE userId = ? AND postId = ?";
+            System.err.println("❌ 조아요 삭제");
         } else {
             // 좋아요를 누르지 않았다면 추가
             sql = "INSERT INTO Likes (userId, postId) VALUES (?, ?)";
+            System.err.println("조아요 추가");
         }
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -280,6 +282,7 @@ public class PostDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 likeCount = rs.getInt(1);
+                System.err.println("조아요 수 ");
             }
         }
 
@@ -307,4 +310,23 @@ public class PostDAO {
         }
         return allGroupPosts;
     }
+    public void updatePost(Post post) throws SQLException {
+        String sql = "UPDATE Posts SET title = ?, content = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, post.getTitle());
+            stmt.setString(2, post.getContent());
+            stmt.setInt(3, post.getId());
+            stmt.executeUpdate();
+        }
+    }
+    public void deletePost(int postId) throws SQLException {
+        String sql = "DELETE FROM Posts WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, postId);
+            stmt.executeUpdate();
+        }
+    }
+
 }

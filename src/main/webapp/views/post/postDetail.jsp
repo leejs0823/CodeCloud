@@ -82,12 +82,25 @@
 	    <hr class="DetailDiviner"/>
 	    </div>
 				    <div id="imageButtons" >
-				    	<button class="imageUpdateButton" onclick="">수정하기</button>
-				        <button class="imageDeleteButton" onclick="">삭제하기</button>
+							<%
+						    User userName = (User) session.getAttribute("user");
+						    String loggedInUserNickname = null;
+							String postWriterNickname = postDAO.findNicknameByUserId(post.getWriter());
+						    if (user != null) {
+						        loggedInUserNickname = user.getNickname(); // 로그인한 사용자의 닉네임
+						    }
+
+						    if (loggedInUserNickname != null && loggedInUserNickname.equals(postWriterNickname)) {
+						    	%>
+							    <button class="imageUpdateButton" onclick="editPost(<%= postId %>)">수정하기</button>
+								<button class="imageDeleteButton" onclick="deletePost(<%= postId %>)">삭제하기</button>
+							<%
+							    }
+							%>
     				</div>
 	    
 	    <div class="LikeViewWrapper">
-	    
+
 		   <p class="DetailViewText"> 조회수 : <%= post.getViewCnt() %></p>
 		   
 		<div class="Like" onclick="toggleLike()">
@@ -131,6 +144,15 @@
     <%--푸터--%>
     <%@ include file="../layout/layoutFooter.jsp" %>
    <script>
+   function editPost(postId) {
+	    window.location.href = "${pageContext.request.contextPath}/views/post/postEdit.jsp?postId=" + postId;
+	}
+   
+   function deletePost(postId) {
+	    if(confirm("게시물을 정말 삭제하시겠습니까?")) {
+	    	window.location.href = "${pageContext.request.contextPath}/deletePost?postId=" + postId;
+	    }
+	}
    // 좋아요
    function toggleLike() {
        var xhr = new XMLHttpRequest();

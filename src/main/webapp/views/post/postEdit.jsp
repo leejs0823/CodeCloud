@@ -8,7 +8,7 @@
 	<title>Code Cloud</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout/layout.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/post/postUpdate.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/post/postEdit.css">
 </head>
 <body>
     <%--헤더--%>
@@ -21,7 +21,7 @@
 	<div class="postWrapper">
 		<div class="postForm">
 			<h1> 글 수정하기 </h1>
-			    <form action="{pageContext.request.contextPath}/postEdit" method="post">
+			    <form action="${pageContext.request.contextPath}/postEdit" method="post">
 			   		<div class="postInputWrapper">
 				        <input type="hidden" name="postId" value="<%= postId %>">
 				        <input class="titleInput" type="text" name="title" value="<%= post.getTitle() %>"><br>
