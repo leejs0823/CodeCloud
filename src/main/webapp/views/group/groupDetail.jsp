@@ -60,7 +60,7 @@
 					<div class = "category">카테고리 1</div>
 					<div class = "category">카테고리 2</div>
 				</div>
-				<button class="post_button" type="submit">글 작성하기</button>
+				<button class="post_button" onclick = "location.href='/CodeCloud/view/post/post.jsp?groupId='+ <%=groupId %>;">글 작성하기</button>
 			</div>
 			<div class="frame">
 			<%
